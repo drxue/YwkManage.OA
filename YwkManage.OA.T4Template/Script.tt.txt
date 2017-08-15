@@ -1,0 +1,211 @@
+﻿<#@ template language="C#" debug="True" #>
+<#@ output extension="cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="$(SolutionDir)\YwkManage.OA.Model\bin\Debug\YwkManage.OA.Model.dll" #>
+//<#@ Assembly Name="$(SolutionDir)\YwkManage.OA.Dal\bin\Debug\YwkManage.OA.Dal.dll" #>
+//<#@ Assembly Name="$(SolutionDir)\YwkManage.OA.IDal\bin\Debug\YwkManage.OA.IDal.dll" #>
+//<#@ Assembly Name="$(SolutionDir)\YwkManage.OA.IBll\bin\Debug\YwkManage.OA.IBll.dll" #>
+//<#@ Assembly Name="$(SolutionDir)\YwkManage.OA.Bll\bin\Debug\YwkManage.OA.Bll.dll" #>
+//<#@ Assembly Name="$(SolutionDir)\YwkManage.OA.Common\bin\Debug\YwkManage.OA.Common.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Text" #>
+<#@ import namespace="System.Reflection" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="YwkManage.OA.Model" #>
+//<#@ Import Namespace="YwkManage.OA.Dal" #>
+//<#@ Import Namespace="YwkManage.OA.IDal" #>
+//<#@ Import Namespace="YwkManage.OA.IBll" #>
+//<#@ Import Namespace="YwkManage.OA.Bll" #>
+//<#@ Import Namespace="YwkManage.OA.Common" #>
+<#@ include file="T4Toolbox.tt" #>
+//<#@ include file="TemplateInclude\DalTemplate.tt" #>
+//<#@ include file="TemplateInclude\IDalTemplate.tt" #>
+//<#@ include file="TemplateInclude\BllTemplate.tt" #>
+//<#@ include file="TemplateInclude\IBllTemplate.tt" #>
+<#@ include file="TemplateInclude\ModelMappingTemplate.tt" #>
+<#@ include file="TemplateInclude\SpringObjectService.xml.tt" #>
+<#@ include file="TemplateInclude\SpringObjectDal.xml.tt" #>
+
+
+<#
+// <copyright file="EntityCodeScript.tt" company="">
+//  Copyright © . All Rights Reserved.
+// </copyright>
+
+//1 公共参数设置部分	
+	//输出项目路径
+    string targetProject=string.Empty;
+	//输出文件路径
+    string outputPath=string.Empty;
+	//脚本运行路径
+    string currentPath=Path.GetDirectoryName(Host.TemplateFile);
+	//解决方案路径
+    string solutionPath=currentPath.Substring(0, currentPath.IndexOf(@"\YwkManage.OA.T4Template"));
+	//包含实体定义的DLL所在位置
+    string modelFile=Path.Combine(solutionPath, @"YwkManage.OA.Model\bin\Debug\YwkManage.OA.Model.dll");
+	//读取Model程序集数据
+    byte[] fileData=File.ReadAllBytes(modelFile);
+	//加载实体程序集
+    Assembly assembly= Assembly.Load(fileData);
+	//反射出所有继承了Entity的实体类
+    IEnumerable<Type> modelTypes=assembly.GetTypes().Where(m=>m.IsClass&&m.Namespace=="YwkManage.OA.Model");
+
+//2 根据模型类在DAL程序集中T4GeneratedClass目录下自动生成Dal类文件
+
+    //输出项目路径-需修改
+    targetProject = Path.Combine(solutionPath, @"YwkManage.OA.Dal\YwkManage.OA.Dal.csproj");
+    //输出文件路径-需修改
+    outputPath = Path.Combine(solutionPath, @"YwkManage.OA.Dal\T4GeneratedClass");
+    
+    foreach(Type modelType in modelTypes)
+    {
+        T4ModelInfo model = new T4ModelInfo(modelType);
+        int length=modelType.Name.Length;
+        string temp=modelType.Name.Substring(length-3);
+        if(model.Name!="Configuration"&&model.Name!="OAContext"&&model.Name!="DbContextFactory")
+        {
+            //实体映射类-需修改
+            DalTemplate config = new DalTemplate(model);
+            //输出的文件编码
+            config.Output.Encoding = Encoding.UTF8;
+            //定制输出项目
+            config.Output.Project  = targetProject;
+            //输出生成的文件
+            config.RenderToFile(Path.Combine(outputPath, config.FileName));
+        }
+    }
+
+//3 根据模型类在IDAL程序集中T4GeneratedClass目录下自动生成IDal接口文件
+
+    //输出项目路径-需修改
+    targetProject = Path.Combine(solutionPath, @"YwkManage.OA.IDal\YwkManage.OA.IDal.csproj");
+    //输出文件路径-需修改
+    outputPath = Path.Combine(solutionPath, @"YwkManage.OA.IDal\T4GeneratedClass");
+    
+    foreach(Type modelType in modelTypes)
+    {
+        T4ModelInfo model = new T4ModelInfo(modelType);
+        int length=modelType.Name.Length;
+        string temp=modelType.Name.Substring(length-3);
+        if(model.Name!="Configuration"&&model.Name!="OAContext"&&model.Name!="DbContextFactory")
+        {
+            //实体映射类-需修改
+            IDalTemplate config = new IDalTemplate(model);
+            //输出的文件编码
+            config.Output.Encoding = Encoding.UTF8;
+            //定制输出项目
+            config.Output.Project  = targetProject;
+            //输出生成的文件
+            config.RenderToFile(Path.Combine(outputPath, config.FileName));
+        }
+    }
+
+//4 根据模型类在Bll程序集中T4GeneratedClass目录下自动生成Bll类文件
+
+    //输出项目路径-需修改
+    targetProject = Path.Combine(solutionPath, @"YwkManage.OA.Bll\YwkManage.OA.Bll.csproj");
+    //输出文件路径-需修改
+    outputPath = Path.Combine(solutionPath, @"YwkManage.OA.Bll\T4GeneratedClass");
+    
+    foreach(Type modelType in modelTypes)
+    {
+        T4ModelInfo model = new T4ModelInfo(modelType);
+        int length=modelType.Name.Length;
+        string temp=modelType.Name.Substring(length-3);
+        if(model.Name!="Configuration"&&model.Name!="OAContext"&&model.Name!="DbContextFactory")
+        {
+            //实体映射类-需修改
+            BllTemplate config = new BllTemplate(model);
+            //输出的文件编码
+            config.Output.Encoding = Encoding.UTF8;
+            //定制输出项目
+            config.Output.Project  = targetProject;
+            //输出生成的文件
+            config.RenderToFile(Path.Combine(outputPath, config.FileName));
+        }
+    }
+
+//5 根据模型类在IBll程序集中T4GeneratedClass目录下自动生成Bll类文件
+
+    //输出项目路径-需修改
+    targetProject = Path.Combine(solutionPath, @"YwkManage.OA.IBll\YwkManage.OA.IBll.csproj");
+    //输出文件路径-需修改
+    outputPath = Path.Combine(solutionPath, @"YwkManage.OA.IBll\T4GeneratedClass");
+    
+    foreach(Type modelType in modelTypes)
+    {
+        T4ModelInfo model = new T4ModelInfo(modelType);
+        int length=modelType.Name.Length;
+        string temp=modelType.Name.Substring(length-3);
+        if(model.Name!="Configuration"&&model.Name!="OAContext"&&model.Name!="DbContextFactory")
+        {
+            //实体映射类-需修改
+            IBllTemplate config = new IBllTemplate(model);
+            //输出的文件编码
+            config.Output.Encoding = Encoding.UTF8;
+            //定制输出项目
+            config.Output.Project  = targetProject;
+            //输出生成的文件
+            config.RenderToFile(Path.Combine(outputPath, config.FileName));
+        }
+    }
+
+//6 根据模型类在Model程序集中Mapping\T4GeneratedClass目录下自动生成ModelMapping类文件
+
+    //输出项目路径-需修改
+    targetProject = Path.Combine(solutionPath, @"YwkManage.OA.Model\YwkManage.OA.Model.csproj");
+    //输出文件路径-需修改
+    outputPath = Path.Combine(solutionPath, @"YwkManage.OA.Model\Mapping\T4GeneratedClass");
+    
+    foreach(Type modelType in modelTypes)
+    {
+        T4ModelInfo model = new T4ModelInfo(modelType);
+        int length=modelType.Name.Length;
+        string temp=modelType.Name.Substring(length-3);
+        if(model.Name!="Configuration"&&model.Name!="OAContext"&&model.Name!="DbContextFactory")
+        {
+            //实体映射类-需修改
+            ModelMappingTemplate config = new ModelMappingTemplate(model);
+            //输出的文件编码
+            config.Output.Encoding = Encoding.UTF8;
+            //定制输出项目
+            config.Output.Project  = targetProject;
+            //输出生成的文件
+            config.RenderToFile(Path.Combine(outputPath, config.FileName));
+        }
+    }
+
+//7 根据模型类在在webapp程序集中的config目录下自动生成service.xml文件，供Spring.net插件的IOC使用，动态生成bll实例。实现表现层与业务层分离。
+
+    //输出项目路径-需修改
+    targetProject = Path.Combine(solutionPath, @"YwkManage.OA.WebApp\YwkManage.OA.WebApp.csproj");
+    //输出文件路径-需修改
+    outputPath = Path.Combine(solutionPath, @"YwkManage.OA.WebApp\Config");
+    
+	//实体映射类-需修改
+		SpringObjectServiceTemplate objectService = new SpringObjectServiceTemplate(modelTypes);
+		 //输出的文件编码
+		objectService.Output.Encoding = Encoding.UTF8;
+		//定制输出项目
+		objectService.Output.Project  = targetProject;
+		//输出生成的文件
+		objectService.RenderToFile(Path.Combine(outputPath, objectService.FileName));            
+
+//8 根据模型类在在webapp程序集中的config目录下自动生成Dal.xml文件，供Spring.net插件的IOC使用，动态生成Dal实例。实现表现层与业务层分离。
+
+    //输出项目路径-需修改
+    targetProject = Path.Combine(solutionPath, @"YwkManage.OA.WebApp\YwkManage.OA.WebApp.csproj");
+    //输出文件路径-需修改
+    outputPath = Path.Combine(solutionPath, @"YwkManage.OA.WebApp\Config");
+    
+	//实体映射类-需修改
+		SpringObjectDalTemplate objectDal = new SpringObjectDalTemplate(modelTypes);
+		 //输出的文件编码
+		objectDal.Output.Encoding = Encoding.UTF8;
+		//定制输出项目
+		objectDal.Output.Project  = targetProject;
+		//输出生成的文件
+		objectDal.RenderToFile(Path.Combine(outputPath, objectDal.FileName));   
+    
+#>

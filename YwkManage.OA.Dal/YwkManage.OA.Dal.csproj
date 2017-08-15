@@ -47,11 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T4GeneratedClass\ActionInfoDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\ContactDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\DepartmentDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\DoctorRegisterDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\EmployeeDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\LeaveDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\ProjectClassifyDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\RoleInfoDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\TitleAwardDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\TitleLevelInfoDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\UserInfoDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\WardDal.generated.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

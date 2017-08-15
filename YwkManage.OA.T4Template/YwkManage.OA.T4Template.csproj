@@ -40,7 +40,94 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityCodeScript.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityCodeScript.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="EntityCodeScript.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityCodeScript.cs</LastGenOutput>
+      <LastOutputs>
+..\YwkManage.OA.Bll\T4GeneratedClass\ActionInfoBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\ContactBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\DepartmentBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\DoctorRegisterBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\EmployeeBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\LeaveBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\ProjectClassifyBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\RoleInfoBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\TitleAwardBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\TitleLevelInfoBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\UserInfoBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\WardBll.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\ActionInfoDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\ContactDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\DepartmentDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\DoctorRegisterDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\EmployeeDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\LeaveDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\ProjectClassifyDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\RoleInfoDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\TitleAwardDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\TitleLevelInfoDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\UserInfoDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\WardDal.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IActionInfoBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IContactBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IDepartmentBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IDoctorRegisterBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IEmployeeBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\ILeaveBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IProjectClassifyBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IRoleInfoBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\ITitleAwardBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\ITitleLevelInfoBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IUserInfoBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IWardBll.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IActionInfoDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IContactDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IDepartmentDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IDoctorRegisterDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IEmployeeDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\ILeaveDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IProjectClassifyDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IRoleInfoDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\ITitleAwardDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\ITitleLevelInfoDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IUserInfoDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IWardDal.generated.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\ActionInfoMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\ContactMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\DepartmentMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\DoctorRegisterMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\EmployeeMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\LeaveMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\ProjectClassifyMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\RoleInfoMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\TitleAwardMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\TitleLevelInfoMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\UserInfoMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\WardMapping.cs
+..\YwkManage.OA.WebApp\Config\Dalgenerated.xml
+..\YwkManage.OA.WebApp\Config\Servicegenerated.xml
+</LastOutputs>
+    </Content>
+    <Content Include="Script.tt.txt" />
+    <Content Include="TemplateInclude\BllTemplate.tt" />
+    <Content Include="TemplateInclude\DalTemplate.tt" />
+    <Content Include="TemplateInclude\IBllTemplate.tt" />
+    <Content Include="TemplateInclude\IDalTemplate.tt" />
+    <Content Include="TemplateInclude\ModelMappingTemplate.tt" />
+    <Content Include="TemplateInclude\SpringObjectDal.xml.tt" />
+    <Content Include="TemplateInclude\SpringObjectService.xml.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

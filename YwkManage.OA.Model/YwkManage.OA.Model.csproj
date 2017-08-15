@@ -50,6 +50,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\ActionInfoMapping.cs" />
+    <Compile Include="Mapping\ContactMapping.cs" />
+    <Compile Include="Mapping\DepartmentMapping.cs" />
+    <Compile Include="Mapping\DoctorRegisterMapping.cs" />
+    <Compile Include="Mapping\EmployeeMapping.cs" />
+    <Compile Include="Mapping\LeaveMapping.cs" />
+    <Compile Include="Mapping\ProjectClassifyMapping.cs" />
+    <Compile Include="Mapping\RoleInfoMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\ActionInfoMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\ContactMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\DepartmentMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\DoctorRegisterMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\EmployeeMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\LeaveMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\ProjectClassifyMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\RoleInfoMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\TitleAwardMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\TitleLevelInfoMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\UserInfoMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\WardMapping.cs" />
+    <Compile Include="Mapping\TitleAwardMapping.cs" />
+    <Compile Include="Mapping\TitleLevelInfoMapping.cs" />
+    <Compile Include="Mapping\UserInfoMapping.cs" />
+    <Compile Include="Mapping\WardMapping.cs" />
+    <Compile Include="Migrations\201708151256440_Inital.cs" />
+    <Compile Include="Migrations\201708151256440_Inital.Designer.cs">
+      <DependentUpon>201708151256440_Inital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
     <Compile Include="ModelClass\Contact.cs" />
     <Compile Include="ModelClass\Department.cs" />
@@ -62,10 +91,14 @@
     <Compile Include="ModelClass\TitleLevelInfo.cs" />
     <Compile Include="ModelClass\UserInfo.cs" />
     <Compile Include="ModelClass\Ward.cs" />
+    <Compile Include="OAContext.cs" />
+    <Compile Include="OAContextFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mapping\" />
+    <EmbeddedResource Include="Migrations\201708151256440_Inital.resx">
+      <DependentUpon>201708151256440_Inital.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
