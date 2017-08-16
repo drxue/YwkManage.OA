@@ -35,7 +35,7 @@ public class SpringObjectDalTemplate : CSharpTemplate
 //     
 // </auto-generated>
 // <copyright file="Dal.xml">
-//        所属工程：YwkManage.OA 中西医薛思源
+//        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
 //        生成时间：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm") #>
 // </copyright>
 -->
@@ -45,12 +45,9 @@ public class SpringObjectDalTemplate : CSharpTemplate
 	foreach(Type modelType in _modelTypes)
     {
         T4ModelInfo model = new T4ModelInfo(modelType);
-        int length=modelType.Name.Length;
-        string temp=modelType.Name.Substring(length-3);
-        if(model.Name!="Configuration"&&model.Name!="OAContext"&&model.Name!="DbContextFactory")
-{#>
+#>
 	<object name="<#= model.Name #>Dal" type="YwkManage.OA.Dal.<#= model.Name #>Dal,YwkManage.OA.Dal" singleton="false" />
-<#+ }
+<#+ 
 }
 #>
 </objects>	

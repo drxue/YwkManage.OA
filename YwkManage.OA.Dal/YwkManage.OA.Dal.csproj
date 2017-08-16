@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDal.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4GeneratedClass\ActionInfoDal.generated.cs" />
@@ -67,5 +68,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\YwkManage.OA.IDal\YwkManage.OA.IDal.csproj">
+      <Project>{d0f5b445-ef0c-4f7d-9be1-cc8fdf72613f}</Project>
+      <Name>YwkManage.OA.IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YwkManage.OA.Model\YwkManage.OA.Model.csproj">
+      <Project>{cf109db0-bc2f-48f2-80c7-657270c558e4}</Project>
+      <Name>YwkManage.OA.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

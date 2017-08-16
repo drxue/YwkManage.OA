@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YwkManage.OA.Model
+namespace YwkManage.OA.Model.ModelClass
 {
     public partial class Department
     {

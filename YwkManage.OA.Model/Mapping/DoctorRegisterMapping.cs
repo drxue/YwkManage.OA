@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
-
+using YwkManage.OA.Model.ModelClass;
 namespace YwkManage.OA.Model.Mapping
 {
     /// <summary>

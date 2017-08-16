@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using YwkManage.OA.Model.Mapping;
+using YwkManage.OA.Model.ModelClass;
 using System.Data.Entity.ModelConfiguration;
 
 namespace YwkManage.OA.Model
