@@ -10,7 +10,7 @@
 // <copyright file="DepartmentModelMapping.generated.cs">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-08-17 00:07
+//        生成时间：2017-08-17 00:22
 // </copyright>
 //------------------------------------------------------------------------------
 
