@@ -125,12 +125,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Controllers.xml" />
+    <Content Include="Config\Dal.xml" />
     <Content Include="Config\Dalgenerated.xml" />
+    <Content Include="Config\Service.xml" />
     <Content Include="Config\Servicegenerated.xml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -141,15 +145,21 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,6 +169,9 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -168,8 +181,29 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YwkManage.OA.Bll\YwkManage.OA.Bll.csproj">
+      <Project>{1719463c-d863-4d12-bcb3-85aff00e6d41}</Project>
+      <Name>YwkManage.OA.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YwkManage.OA.Dal\YwkManage.OA.Dal.csproj">
+      <Project>{c386dbaa-4f55-43cf-b409-c1a3e13a35dd}</Project>
+      <Name>YwkManage.OA.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YwkManage.OA.IBll\YwkManage.OA.IBll.csproj">
+      <Project>{c85d39c8-9488-43cb-8155-afcbf260dbea}</Project>
+      <Name>YwkManage.OA.IBll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YwkManage.OA.IDal\YwkManage.OA.IDal.csproj">
+      <Project>{d0f5b445-ef0c-4f7d-9be1-cc8fdf72613f}</Project>
+      <Name>YwkManage.OA.IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YwkManage.OA.Model\YwkManage.OA.Model.csproj">
+      <Project>{cf109db0-bc2f-48f2-80c7-657270c558e4}</Project>
+      <Name>YwkManage.OA.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

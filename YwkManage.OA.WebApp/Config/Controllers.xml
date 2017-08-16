@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects>
+  <object name="DefaultController" type="YwkManage.OA.WebApp.Controllers.DefaultController,YwkManage.OA.WebApp" singleton="false" >
+    <property name="ContactService" ref="ContactService" />
+  </object>
+</objects>
