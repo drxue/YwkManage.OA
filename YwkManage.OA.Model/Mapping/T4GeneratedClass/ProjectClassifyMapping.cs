@@ -9,8 +9,8 @@
 //
 // <copyright file="ProjectClassifyModelMapping.generated.cs">
 //  
-//        所属工程：YwkManage.OA 中西医薛思源
-//        生成时间：2017-08-16 23:40
+//        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
+//        生成时间：2017-08-16 23:45
 // </copyright>
 //------------------------------------------------------------------------------
 
