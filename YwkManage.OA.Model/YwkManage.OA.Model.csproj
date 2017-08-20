@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201708151256440_Inital.Designer.cs">
       <DependentUpon>201708151256440_Inital.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708200733103_addAContact.cs" />
+    <Compile Include="Migrations\201708200733103_addAContact.Designer.cs">
+      <DependentUpon>201708200733103_addAContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
     <Compile Include="ModelClass\Contact.cs" />
@@ -98,6 +102,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708151256440_Inital.resx">
       <DependentUpon>201708151256440_Inital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708200733103_addAContact.resx">
+      <DependentUpon>201708200733103_addAContact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
