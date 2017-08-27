@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace  YwkManage.OA.Model.ModelClass
 {
+    /// <summary>
+    /// 登录用户角色信息
+    /// </summary>
     public partial class RoleInfo
     {
         public RoleInfo()

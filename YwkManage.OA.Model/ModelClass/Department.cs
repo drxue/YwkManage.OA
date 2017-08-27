@@ -15,9 +15,9 @@ namespace YwkManage.OA.Model.ModelClass
         public Department()
         {
             Employee = new HashSet<Employee>();
-            //Leave = new HashSet<Leave>();
+            Leave = new HashSet<Leave>();
             //Ward = new HashSet<Ward>();
-            
+
         }
         //Primary key
         public int DepartmenID { get; set; }
@@ -29,6 +29,7 @@ namespace YwkManage.OA.Model.ModelClass
         public Nullable<bool> PediatricsFlag { get; set; }
         public Nullable<bool> OutpatientFlag { get; set; }
         public Nullable<bool> TechnicalFlag { get; set; }
+        public Nullable<bool> AdministractiveFlag { get; set; }
         public string Comment { get; set; }
 
         //Foreign key
@@ -43,8 +44,8 @@ namespace YwkManage.OA.Model.ModelClass
         [JsonIgnore]
         public virtual Employee HeadNurse { get; set; }
 
-        //[JsonIgnore]
-        //public virtual ICollection<Leave> Leave { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Leave> Leave { get; set; }
         //[JsonIgnore]
         //public virtual ICollection<Ward> Ward { get; set; }
     }

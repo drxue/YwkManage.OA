@@ -41,7 +41,13 @@ namespace YwkManage.OA.Model.Mapping
             this.ToTable("TitleAward");
 
             // Relationships
+            this.HasRequired(e => e.Employee)
+                .WithMany(e => e.TitleAward)
+                .HasForeignKey(e => e.EmployeeID);
 
+            this.HasRequired(e => e.TitleLevelInfo)
+                .WithMany(e => e.TitleAward)
+                .HasForeignKey(e => e.TitleLevelInfoID);
         }
 
         #region 示例

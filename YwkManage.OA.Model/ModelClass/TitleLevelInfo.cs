@@ -9,16 +9,19 @@ namespace  YwkManage.OA.Model.ModelClass
 {
     public partial class TitleLevelInfo
     {
+       /// <summary>
+       /// 职称等级信息
+       /// </summary>
         public TitleLevelInfo()
         {
-           // TitleAward = new HashSet<TitleAward>();
+            TitleAward = new HashSet<TitleAward>();
         }
         //基本属性
         public int TitleLevelInfoID { get; set; }
         public string TitleName { get; set; }
         public int TitleLevel { get; set; }
         //导航属性
-        //[JsonIgnore]
-        //public virtual ICollection<TitleAward> TitleAward { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<TitleAward> TitleAward { get; set; }
     }
 }

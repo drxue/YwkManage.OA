@@ -34,12 +34,15 @@ namespace YwkManage.OA.Model.Mapping
             this.HasKey(e => e.EmployeeID);
             // Properties
 
-            // Relationships
+            #region Relationships
+            //与科室关联
             this.HasRequired(e => e.Department)
                 .WithMany(c => c.Employee)
-               .HasForeignKey(e=>e.DepartmentID);
+                .HasForeignKey(e => e.DepartmentID);
+            #endregion
 
-            
+
+
         }
     }
 }
