@@ -41,7 +41,21 @@ namespace YwkManage.OA.Model.Mapping
             this.ToTable("Ward");
 
             // Relationships
+            this.HasRequired(e => e.HeadNurse)
+                .WithOptional()
+                .Map(e => e.MapKey("HeadNurseID"));
+            this.HasOptional(e => e.DeputyHeadNurse)
+                .WithOptionalDependent()
+                .Map(e => e.MapKey("DeputyHeadNurseID"));
 
+            this.HasMany(e => e.Department)
+                .WithMany(e => e.Ward)
+                .Map(e =>
+                {
+                    e.ToTable("DepartmentWardRelationship");
+                    e.MapLeftKey("DepartmentID");
+                    e.MapRightKey("WardID");
+                });
         }
 
         #region 示例

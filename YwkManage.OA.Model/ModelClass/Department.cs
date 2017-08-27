@@ -16,7 +16,7 @@ namespace YwkManage.OA.Model.ModelClass
         {
             Employee = new HashSet<Employee>();
             Leave = new HashSet<Leave>();
-            //Ward = new HashSet<Ward>();
+            Ward = new HashSet<Ward>();
 
         }
         //Primary key
@@ -46,7 +46,7 @@ namespace YwkManage.OA.Model.ModelClass
 
         [JsonIgnore]
         public virtual ICollection<Leave> Leave { get; set; }
-        //[JsonIgnore]
-        //public virtual ICollection<Ward> Ward { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Ward> Ward { get; set; }
     }
 }

@@ -20,10 +20,9 @@ namespace  YwkManage.OA.Model.ModelClass
         public DateTime? UpdateDate { get; set; }
 
         #region 导航属性
-        //[JsonIgnore]
-        //public virtual ProjectClassify ProjectClassify { get; set; }
-        [JsonIgnore]
+        public virtual ProjectClassify ProjectClassify { get; set; }
         public virtual Employee Employee { get; set; }
+        public virtual Department Department { get; set; }
 
         #endregion
 

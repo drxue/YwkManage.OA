@@ -41,7 +41,10 @@ namespace YwkManage.OA.Model.Mapping
             this.ToTable("ProjectClassify");
 
             // Relationships
-
+            this.HasMany(e => e.Leave)
+                .WithOptional(e => e.ProjectClassify)
+                .HasForeignKey(e => e.ProjectClassifyID)
+                .WillCascadeOnDelete(false);
         }
 
         #region 示例

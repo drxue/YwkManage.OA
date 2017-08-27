@@ -3,7 +3,7 @@ namespace YwkManage.OA.Model.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -62,7 +62,7 @@ namespace YwkManage.OA.Model.Migrations
                 "dbo.Contact",
                 c => new
                     {
-                        CID = c.Int(nullable: false, identity: true),
+                        ContactID = c.Int(nullable: false, identity: true),
                         EmployeeID = c.String(),
                         Name = c.String(),
                         Gender = c.String(),
@@ -74,8 +74,11 @@ namespace YwkManage.OA.Model.Migrations
                         Email = c.String(),
                         Address = c.String(),
                         Comment = c.String(),
+                        DepartmentID = c.Int(),
                     })
-                .PrimaryKey(t => t.CID);
+                .PrimaryKey(t => t.ContactID)
+                .ForeignKey("dbo.Department", t => t.DepartmentID)
+                .Index(t => t.DepartmentID);
             
             CreateTable(
                 "dbo.Department",
@@ -90,6 +93,7 @@ namespace YwkManage.OA.Model.Migrations
                         PediatricsFlag = c.Boolean(),
                         OutpatientFlag = c.Boolean(),
                         TechnicalFlag = c.Boolean(),
+                        AdministractiveFlag = c.Boolean(),
                         Comment = c.String(),
                         DepartmentDeputyDirectorID = c.String(maxLength: 128),
                         DepartmentDirectorID = c.String(maxLength: 128),
@@ -123,10 +127,57 @@ namespace YwkManage.OA.Model.Migrations
                 .Index(t => t.DepartmentID);
             
             CreateTable(
+                "dbo.Leave",
+                c => new
+                    {
+                        LeaveID = c.Int(nullable: false, identity: true),
+                        EmployeeID = c.String(nullable: false, maxLength: 128),
+                        DepartmentID = c.Int(nullable: false),
+                        ProjectClassifyID = c.Int(),
+                        ProjectName = c.String(),
+                        Destination = c.String(),
+                        StartDate = c.DateTime(),
+                        EndDate = c.DateTime(),
+                        UpdateDate = c.DateTime(),
+                    })
+                .PrimaryKey(t => t.LeaveID)
+                .ForeignKey("dbo.Department", t => t.DepartmentID)
+                .ForeignKey("dbo.Employee", t => t.EmployeeID, cascadeDelete: true)
+                .Index(t => t.EmployeeID)
+                .Index(t => t.DepartmentID);
+            
+            CreateTable(
+                "dbo.TitleAward",
+                c => new
+                    {
+                        TitleAwardID = c.Int(nullable: false, identity: true),
+                        EmployeeID = c.String(nullable: false, maxLength: 128),
+                        TitleLevelInfoID = c.Int(nullable: false),
+                        AwardDate = c.DateTime(),
+                        AwardHospital = c.String(),
+                        UpdateDate = c.DateTime(),
+                    })
+                .PrimaryKey(t => t.TitleAwardID)
+                .ForeignKey("dbo.Employee", t => t.EmployeeID, cascadeDelete: true)
+                .ForeignKey("dbo.TitleLevelInfo", t => t.TitleLevelInfoID, cascadeDelete: true)
+                .Index(t => t.EmployeeID)
+                .Index(t => t.TitleLevelInfoID);
+            
+            CreateTable(
+                "dbo.TitleLevelInfo",
+                c => new
+                    {
+                        TitleLevelInfoID = c.Int(nullable: false, identity: true),
+                        TitleName = c.String(),
+                        TitleLevel = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.TitleLevelInfoID);
+            
+            CreateTable(
                 "dbo.DoctorRegister",
                 c => new
                     {
-                        DID = c.Int(nullable: false, identity: true),
+                        DoctorRegisterID = c.Int(nullable: false, identity: true),
                         EmployeeID = c.String(),
                         CertifiedStatus = c.String(),
                         Name = c.String(),
@@ -145,23 +196,7 @@ namespace YwkManage.OA.Model.Migrations
                         UpdateDate = c.DateTime(),
                         RegisterStatus = c.String(),
                     })
-                .PrimaryKey(t => t.DID);
-            
-            CreateTable(
-                "dbo.Leave",
-                c => new
-                    {
-                        LID = c.Int(nullable: false, identity: true),
-                        EmployeeID = c.String(),
-                        DepartmentID = c.Int(nullable: false),
-                        ProjectClassifyID = c.Int(),
-                        ProjectName = c.String(),
-                        Destination = c.String(),
-                        StartDate = c.DateTime(),
-                        EndDate = c.DateTime(),
-                        UpdateDate = c.DateTime(),
-                    })
-                .PrimaryKey(t => t.LID);
+                .PrimaryKey(t => t.DoctorRegisterID);
             
             CreateTable(
                 "dbo.ProjectClassify",
@@ -172,29 +207,6 @@ namespace YwkManage.OA.Model.Migrations
                         Description = c.String(),
                     })
                 .PrimaryKey(t => t.ProjectClassifyID);
-            
-            CreateTable(
-                "dbo.TitleAward",
-                c => new
-                    {
-                        TitleAwardID = c.Int(nullable: false, identity: true),
-                        EmployeeID = c.String(),
-                        TitleID = c.Int(nullable: false),
-                        AwardDate = c.DateTime(),
-                        AwardHospital = c.String(),
-                        UpdateDate = c.DateTime(),
-                    })
-                .PrimaryKey(t => t.TitleAwardID);
-            
-            CreateTable(
-                "dbo.TitleLevelInfo",
-                c => new
-                    {
-                        TitleID = c.Int(nullable: false, identity: true),
-                        TitleName = c.String(),
-                        TitleLevel = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.TitleID);
             
             CreateTable(
                 "dbo.Ward",
@@ -252,9 +264,14 @@ namespace YwkManage.OA.Model.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Contact", "DepartmentID", "dbo.Department");
             DropForeignKey("dbo.Department", "HeadNurseID", "dbo.Employee");
             DropForeignKey("dbo.Department", "DepartmentDirectorID", "dbo.Employee");
             DropForeignKey("dbo.Department", "DepartmentDeputyDirectorID", "dbo.Employee");
+            DropForeignKey("dbo.TitleAward", "TitleLevelInfoID", "dbo.TitleLevelInfo");
+            DropForeignKey("dbo.TitleAward", "EmployeeID", "dbo.Employee");
+            DropForeignKey("dbo.Leave", "EmployeeID", "dbo.Employee");
+            DropForeignKey("dbo.Leave", "DepartmentID", "dbo.Department");
             DropForeignKey("dbo.Employee", "DepartmentID", "dbo.Department");
             DropForeignKey("dbo.UserInfoRoleInfo", "RoleInfoID", "dbo.RoleInfo");
             DropForeignKey("dbo.UserInfoRoleInfo", "UserInfoID", "dbo.UserInfo");
@@ -268,19 +285,24 @@ namespace YwkManage.OA.Model.Migrations
             DropIndex("dbo.UserInfoActionInfo", new[] { "UserInfoID" });
             DropIndex("dbo.RoleInfoActionInfo", new[] { "ActionInfoID" });
             DropIndex("dbo.RoleInfoActionInfo", new[] { "RoleInfoID" });
+            DropIndex("dbo.TitleAward", new[] { "TitleLevelInfoID" });
+            DropIndex("dbo.TitleAward", new[] { "EmployeeID" });
+            DropIndex("dbo.Leave", new[] { "DepartmentID" });
+            DropIndex("dbo.Leave", new[] { "EmployeeID" });
             DropIndex("dbo.Employee", new[] { "DepartmentID" });
             DropIndex("dbo.Department", new[] { "HeadNurseID" });
             DropIndex("dbo.Department", new[] { "DepartmentDirectorID" });
             DropIndex("dbo.Department", new[] { "DepartmentDeputyDirectorID" });
+            DropIndex("dbo.Contact", new[] { "DepartmentID" });
             DropTable("dbo.UserInfoRoleInfo");
             DropTable("dbo.UserInfoActionInfo");
             DropTable("dbo.RoleInfoActionInfo");
             DropTable("dbo.Ward");
+            DropTable("dbo.ProjectClassify");
+            DropTable("dbo.DoctorRegister");
             DropTable("dbo.TitleLevelInfo");
             DropTable("dbo.TitleAward");
-            DropTable("dbo.ProjectClassify");
             DropTable("dbo.Leave");
-            DropTable("dbo.DoctorRegister");
             DropTable("dbo.Employee");
             DropTable("dbo.Department");
             DropTable("dbo.Contact");

@@ -74,41 +74,17 @@
     <Compile Include="Mapping\TitleLevelInfoMapping.cs" />
     <Compile Include="Mapping\UserInfoMapping.cs" />
     <Compile Include="Mapping\WardMapping.cs" />
-    <Compile Include="Migrations\201708270517156_Initial.cs" />
-    <Compile Include="Migrations\201708270517156_Initial.Designer.cs">
-      <DependentUpon>201708270517156_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201708271616256_initial.cs" />
+    <Compile Include="Migrations\201708271616256_initial.Designer.cs">
+      <DependentUpon>201708271616256_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708270617495_InitialA.cs" />
-    <Compile Include="Migrations\201708270617495_InitialA.Designer.cs">
-      <DependentUpon>201708270617495_InitialA.cs</DependentUpon>
+    <Compile Include="Migrations\201708271634079_projiectclassify.cs" />
+    <Compile Include="Migrations\201708271634079_projiectclassify.Designer.cs">
+      <DependentUpon>201708271634079_projiectclassify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708270631424_InitialB.cs" />
-    <Compile Include="Migrations\201708270631424_InitialB.Designer.cs">
-      <DependentUpon>201708270631424_InitialB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270744507_Initialc.cs" />
-    <Compile Include="Migrations\201708270744507_Initialc.Designer.cs">
-      <DependentUpon>201708270744507_Initialc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270751369_Initialr.cs" />
-    <Compile Include="Migrations\201708270751369_Initialr.Designer.cs">
-      <DependentUpon>201708270751369_Initialr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270806148_Initial4.cs" />
-    <Compile Include="Migrations\201708270806148_Initial4.Designer.cs">
-      <DependentUpon>201708270806148_Initial4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270852143_Initial5.cs" />
-    <Compile Include="Migrations\201708270852143_Initial5.Designer.cs">
-      <DependentUpon>201708270852143_Initial5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270905317_Initial51.cs" />
-    <Compile Include="Migrations\201708270905317_Initial51.Designer.cs">
-      <DependentUpon>201708270905317_Initial51.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270907008_Initial6.cs" />
-    <Compile Include="Migrations\201708270907008_Initial6.Designer.cs">
-      <DependentUpon>201708270907008_Initial6.cs</DependentUpon>
+    <Compile Include="Migrations\201708271648499_departmentWardRelationship.cs" />
+    <Compile Include="Migrations\201708271648499_departmentWardRelationship.Designer.cs">
+      <DependentUpon>201708271648499_departmentWardRelationship.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
@@ -132,32 +108,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708270517156_Initial.resx">
-      <DependentUpon>201708270517156_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708271616256_initial.resx">
+      <DependentUpon>201708271616256_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270617495_InitialA.resx">
-      <DependentUpon>201708270617495_InitialA.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708271634079_projiectclassify.resx">
+      <DependentUpon>201708271634079_projiectclassify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270631424_InitialB.resx">
-      <DependentUpon>201708270631424_InitialB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270744507_Initialc.resx">
-      <DependentUpon>201708270744507_Initialc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270751369_Initialr.resx">
-      <DependentUpon>201708270751369_Initialr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270806148_Initial4.resx">
-      <DependentUpon>201708270806148_Initial4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270852143_Initial5.resx">
-      <DependentUpon>201708270852143_Initial5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270905317_Initial51.resx">
-      <DependentUpon>201708270905317_Initial51.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270907008_Initial6.resx">
-      <DependentUpon>201708270907008_Initial6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708271648499_departmentWardRelationship.resx">
+      <DependentUpon>201708271648499_departmentWardRelationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
