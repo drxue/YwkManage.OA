@@ -9,8 +9,8 @@
 //
 // <copyright file="DoctorRegisterModelMapping.generated.cs">
 //  
-//        所属工程：YwkManage.OA 中西医薛思源
-//        生成时间：2017-08-15 19:43
+//        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
+//        生成时间：2017-08-27 14:27
 // </copyright>
 //------------------------------------------------------------------------------
 
@@ -21,34 +21,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using YwkManage.OA.Model.ModelClass;
+
 namespace YwkManage.OA.Model.Mapping
 {
-    /// <summary>
-    /// 模型关系设置，Fruent API设置，ModelMapping-数据表映射——DoctorRegister
-    /// </summary> 
-    public partial class DoctorRegisterMapping : EntityTypeConfiguration<DoctorRegister>
-    {
-        //示例
+	/// <summary>
+	/// 模型关系设置，Fruent API设置，ModelMapping-数据表映射——DoctorRegister
+	///	中西医薛思源 siyuanxue@outlook.com
+	/// </summary> 
+	public partial class DoctorRegisterMapping:EntityTypeConfiguration<DoctorRegister>
+	{
         public DoctorRegisterMapping()
         {
             // Primary Key
-            this.HasKey(e => e.DID);
-            //// Properties
-            //this.Property(e => e.EmployeeID)
-            //    .IsRequired()
-            //    .HasMaxLength(10);
-            //this.Property(e => e.Destination)
-            //    .HasMaxLength(50);
-            //// Table & Column Mappings
-            //this.ToTable("Leave");
-            //// Relationships
-            //this.HasOptional(e => e.ProjectClassify)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.ProjectClassifyID);
-            //this.HasRequired(e => e.Employees)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.EmployeeID);
+            this.HasKey(e => e.DoctorRegisterID);
+
+            // Properties
+
+            // Table & Column Mappings
+            this.ToTable("DoctorRegister");
+
+            // Relationships
+
         }
+
+        #region 示例
+        //public DoctorRegisterMapping()
+        //{
+        //    // Primary Key
+        //    this.HasKey(e => e.DoctorRegisterID);
+
+        //    // Properties
+        //    this.Property(e => e.DoctorRegisterID)
+        //        .IsRequired()
+        //        .HasMaxLength(10);
+
+        //    // Table & Column Mappings
+        //    this.ToTable("DoctorRegister");
+
+        //    // Relationships
+        //    this.HasOptional(e => e.OtherClass)
+        //        .WithMany(e => e.DoctorRegister)
+        //        .HasForeignKey(e => e.OtherClassID);
+        //}
+        #endregion 示例
     }
 }
-
+	
+	

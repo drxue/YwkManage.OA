@@ -10,7 +10,7 @@
 // <copyright file="DoctorRegisterModelMapping.generated.cs">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-08-27 11:06
+//        生成时间：2017-08-27 14:27
 // </copyright>
 //------------------------------------------------------------------------------
 
@@ -30,27 +30,40 @@ namespace YwkManage.OA.Model.Mapping
 	/// </summary> 
 	public partial class DoctorRegisterMapping:EntityTypeConfiguration<DoctorRegister>
 	{
-		//示例
 		//public DoctorRegisterMapping()
-		//{
-		//// Primary Key
-		//this.HasKey(e => e.LID);
-		//// Properties
-		//this.Property(e => e.EmployeeID)
-		//    .IsRequired()
-		//    .HasMaxLength(10);
-		//this.Property(e => e.Destination)
-		//    .HasMaxLength(50);
-		//// Table & Column Mappings
-		//this.ToTable("Leave");
-		//// Relationships
-		//this.HasOptional(e => e.ProjectClassify)
-		//    .WithMany(e => e.Leave)
-		//    .HasForeignKey(e => e.ProjectClassifyID);
-		//this.HasRequired(e => e.Employees)
-		//    .WithMany(e => e.Leave)
-		//    .HasForeignKey(e => e.EmployeeID);
-		//}
+        //{
+		//	 // Primary Key
+		//	 this.HasKey(e => e.DoctorRegisterID);
+
+		//	 // Properties
+		//
+		//	 // Table & Column Mappings
+		//   this.ToTable("DoctorRegister");
+
+		//	 // Relationships
+		//
+        //}
+
+        #region 示例
+        //public DoctorRegisterMapping()
+        //{
+        //    // Primary Key
+        //    this.HasKey(e => e.DoctorRegisterID);
+
+        //    // Properties
+        //    this.Property(e => e.DoctorRegisterID)
+        //        .IsRequired()
+        //        .HasMaxLength(10);
+
+        //    // Table & Column Mappings
+        //    this.ToTable("DoctorRegister");
+
+        //    // Relationships
+        //    this.HasOptional(e => e.OtherClass)
+        //        .WithMany(e => e.DoctorRegister)
+        //        .HasForeignKey(e => e.OtherClassID);
+        //}
+        #endregion 示例
 	}
 }
 	

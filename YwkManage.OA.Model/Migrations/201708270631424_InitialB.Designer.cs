@@ -7,18 +7,18 @@ namespace YwkManage.OA.Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-beta1-60406")]
-    public sealed partial class Fruentapi : IMigrationMetadata
+    public sealed partial class InitialB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Fruentapi));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708251718085_Fruentapi"; }
+            get { return "201708270631424_InitialB"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

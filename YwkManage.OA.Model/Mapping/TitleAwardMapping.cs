@@ -9,8 +9,8 @@
 //
 // <copyright file="TitleAwardModelMapping.generated.cs">
 //  
-//        所属工程：YwkManage.OA 中西医薛思源
-//        生成时间：2017-08-15 19:43
+//        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
+//        生成时间：2017-08-27 14:27
 // </copyright>
 //------------------------------------------------------------------------------
 
@@ -21,34 +21,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using YwkManage.OA.Model.ModelClass;
+
 namespace YwkManage.OA.Model.Mapping
 {
-    /// <summary>
-    /// 模型关系设置，Fruent API设置，ModelMapping-数据表映射——TitleAward
-    /// </summary> 
-    public partial class TitleAwardMapping : EntityTypeConfiguration<TitleAward>
-    {
-        //示例
+	/// <summary>
+	/// 模型关系设置，Fruent API设置，ModelMapping-数据表映射——TitleAward
+	///	中西医薛思源 siyuanxue@outlook.com
+	/// </summary> 
+	public partial class TitleAwardMapping:EntityTypeConfiguration<TitleAward>
+	{
         public TitleAwardMapping()
         {
             // Primary Key
             this.HasKey(e => e.TitleAwardID);
-            //// Properties
-            //this.Property(e => e.EmployeeID)
-            //    .IsRequired()
-            //    .HasMaxLength(10);
-            //this.Property(e => e.Destination)
-            //    .HasMaxLength(50);
-            //// Table & Column Mappings
-            //this.ToTable("Leave");
-            //// Relationships
-            //this.HasOptional(e => e.ProjectClassify)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.ProjectClassifyID);
-            //this.HasRequired(e => e.Employees)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.EmployeeID);
+
+            // Properties
+
+            // Table & Column Mappings
+            this.ToTable("TitleAward");
+
+            // Relationships
+
         }
+
+        #region 示例
+        //public TitleAwardMapping()
+        //{
+        //    // Primary Key
+        //    this.HasKey(e => e.TitleAwardID);
+
+        //    // Properties
+        //    this.Property(e => e.TitleAwardID)
+        //        .IsRequired()
+        //        .HasMaxLength(10);
+
+        //    // Table & Column Mappings
+        //    this.ToTable("TitleAward");
+
+        //    // Relationships
+        //    this.HasOptional(e => e.OtherClass)
+        //        .WithMany(e => e.TitleAward)
+        //        .HasForeignKey(e => e.OtherClassID);
+        //}
+        #endregion 示例
     }
 }
-
+	
+	

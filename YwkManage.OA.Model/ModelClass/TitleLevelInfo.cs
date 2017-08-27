@@ -14,7 +14,7 @@ namespace  YwkManage.OA.Model.ModelClass
            // TitleAward = new HashSet<TitleAward>();
         }
         //基本属性
-        public int TitleID { get; set; }
+        public int TitleLevelInfoID { get; set; }
         public string TitleName { get; set; }
         public int TitleLevel { get; set; }
         //导航属性

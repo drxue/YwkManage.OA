@@ -8,18 +8,22 @@ namespace  YwkManage.OA.Model.ModelClass
 {
     public partial class RoleInfo
     {
-        public int ID { get; set; }
+        public RoleInfo()
+        {
+            UserInfo = new HashSet<UserInfo>();
+            ActionInfo = new HashSet<ActionInfo>();
+        }
 
+        public int RoleInfoID { get; set; }
         public string RoleName { get; set; }
-
         public short DelFlag { get; set; }
-
         public DateTime SubTime { get; set; }
-
         public string Remark { get; set; }
-
         public DateTime ModifiedOn { get; set; }
-
         public string Sort { get; set; }
+
+        //Navigation Property
+        public virtual ICollection<UserInfo> UserInfo { get; set; }
+        public virtual ICollection<ActionInfo> ActionInfo { get; set; }
     }
 }

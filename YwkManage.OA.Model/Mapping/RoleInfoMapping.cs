@@ -9,8 +9,8 @@
 //
 // <copyright file="RoleInfoModelMapping.generated.cs">
 //  
-//        所属工程：YwkManage.OA 中西医薛思源
-//        生成时间：2017-08-15 19:43
+//        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
+//        生成时间：2017-08-27 11:11
 // </copyright>
 //------------------------------------------------------------------------------
 
@@ -21,34 +21,57 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
 using YwkManage.OA.Model.ModelClass;
+
 namespace YwkManage.OA.Model.Mapping
 {
-    /// <summary>
-    /// 模型关系设置，Fruent API设置，ModelMapping-数据表映射——RoleInfo
-    /// </summary> 
-    public partial class RoleInfoMapping : EntityTypeConfiguration<RoleInfo>
-    {
-        //示例
+	/// <summary>
+	/// 模型关系设置，Fruent API设置，ModelMapping-数据表映射——RoleInfo
+	///	中西医薛思源 siyuanxue@outlook.com
+	/// </summary> 
+	public partial class RoleInfoMapping:EntityTypeConfiguration<RoleInfo>
+	{
         public RoleInfoMapping()
         {
             // Primary Key
-            this.HasKey(e => e.ID);
-            //// Properties
-            //this.Property(e => e.EmployeeID)
-            //    .IsRequired()
-            //    .HasMaxLength(10);
-            //this.Property(e => e.Destination)
-            //    .HasMaxLength(50);
-            //// Table & Column Mappings
-            //this.ToTable("Leave");
-            //// Relationships
-            //this.HasOptional(e => e.ProjectClassify)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.ProjectClassifyID);
-            //this.HasRequired(e => e.Employees)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.EmployeeID);
+            this.HasKey(e => e.RoleInfoID);
+
+            // Properties
+
+            // Table & Column Mappings
+            this.ToTable("RoleInfo");
+
+            // Relationships
+            this.HasMany(e => e.ActionInfo)
+                .WithMany(e => e.RoleInfo)
+                .Map(e =>
+                {
+                    e.ToTable("RoleInfoActionInfo");
+                    e.MapLeftKey("RoleInfoID");
+                    e.MapRightKey("ActionInfoID");
+                });
         }
+
+        #region 示例
+        //public RoleInfoMapping()
+        //{
+        //    // Primary Key
+        //    this.HasKey(e => e.RoleInfoID);
+
+        //    // Properties
+        //    this.Property(e => e.RoleInfoID)
+        //        .IsRequired()
+        //        .HasMaxLength(10);
+
+        //    // Table & Column Mappings
+        //    this.ToTable("RoleInfo");
+
+        //    // Relationships
+        //    this.HasOptional(e => e.OtherClass)
+        //        .WithMany(e => e.RoleInfo)
+        //        .HasForeignKey(e => e.OtherClassID);
+        //}
+        #endregion 示例
     }
 }
-
+	
+	

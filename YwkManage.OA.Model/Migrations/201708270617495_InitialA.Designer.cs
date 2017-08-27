@@ -7,13 +7,13 @@ namespace YwkManage.OA.Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-beta1-60406")]
-    public sealed partial class Inital : IMigrationMetadata
+    public sealed partial class InitialA : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Inital));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialA));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708151256440_Inital"; }
+            get { return "201708270617495_InitialA"; }
         }
         
         string IMigrationMetadata.Source

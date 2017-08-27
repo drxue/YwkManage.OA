@@ -33,10 +33,11 @@ namespace YwkManage.OA.Model.Mapping
             // Primary Key
             this.HasKey(e => e.EmployeeID);
             // Properties
-            
+
             // Relationships
             this.HasRequired(e => e.Department)
-                .WithMany(c => c.Employee);
+                .WithMany(c => c.Employee)
+               .HasForeignKey(e=>e.DepartmentID);
 
             
         }

@@ -8,7 +8,12 @@ namespace YwkManage.OA.Model.ModelClass
 {
     public partial class UserInfo
     {
-        public int ID { get; set; }
+        public UserInfo()
+        {
+            ActionInfo = new HashSet<ActionInfo>();
+            RoleInfo = new HashSet<RoleInfo>();
+        }
+        public int UserInfoID { get; set; }
         public string UserName { get; set; }
         public string UserPwd { get; set; }
         public DateTime SubTime { get; set; }
@@ -17,6 +22,7 @@ namespace YwkManage.OA.Model.ModelClass
         public string Remark { get; set; }
         public string Sort { get; set; }
         //导航属性
-
+        public virtual ICollection<ActionInfo> ActionInfo { get; set; }
+        public virtual ICollection<RoleInfo> RoleInfo { get; set; }
     }
 }

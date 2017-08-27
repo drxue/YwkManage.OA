@@ -9,7 +9,7 @@ namespace  YwkManage.OA.Model.ModelClass
 {
     public partial class Leave
     {
-        public int LID { get; set; }
+        public int LeaveID { get; set; }
         public string EmployeeID { get; set; }
         public int DepartmentID { get; set; }
         public Nullable<int> ProjectClassifyID { get; set; }

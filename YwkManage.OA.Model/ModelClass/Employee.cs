@@ -26,10 +26,14 @@ namespace YwkManage.OA.Model.ModelClass
         public DateTime? HireDate { get; set; }
         public string Notes { get; set; }
         public int? Title_TitleID { get; set; }
+
         //Foreign key
+        public int DepartmentID { get; set; }
+
         //导航属性
         [JsonIgnore]
         public virtual Department Department { get; set; }
+
         //[JsonIgnore]
         //public virtual ICollection<TitleAward> TitleAward { get; set; }
         //[JsonIgnore]

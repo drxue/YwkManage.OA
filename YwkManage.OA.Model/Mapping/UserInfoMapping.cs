@@ -10,7 +10,7 @@
 // <copyright file="UserInfoModelMapping.generated.cs">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-08-15 19:43
+//        生成时间：2017-08-27 11:11
 // </copyright>
 //------------------------------------------------------------------------------
 
@@ -26,30 +26,60 @@ namespace YwkManage.OA.Model.Mapping
 {
     /// <summary>
     /// 模型关系设置，Fruent API设置，ModelMapping-数据表映射——UserInfo
+    ///	中西医薛思源 siyuanxue@outlook.com
     /// </summary> 
     public partial class UserInfoMapping : EntityTypeConfiguration<UserInfo>
     {
-        //示例
         public UserInfoMapping()
         {
             // Primary Key
-            this.HasKey(e => e.ID);
-            //// Properties
-            //this.Property(e => e.EmployeeID)
-            //    .IsRequired()
-            //    .HasMaxLength(10);
-            //this.Property(e => e.Destination)
-            //    .HasMaxLength(50);
-            //// Table & Column Mappings
-            //this.ToTable("Leave");
-            //// Relationships
-            //this.HasOptional(e => e.ProjectClassify)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.ProjectClassifyID);
-            //this.HasRequired(e => e.Employees)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.EmployeeID);
+            this.HasKey(e => e.UserInfoID);
+
+            // Properties
+
+            // Table & Column Mappings
+            this.ToTable("UserInfo");
+
+            // Relationships
+            this.HasMany(e => e.ActionInfo)
+                .WithMany(e => e.UserInfo)
+                .Map(e =>
+                {
+                    e.ToTable("UserInfoActionInfo");
+                    e.MapLeftKey("UserInfoID");
+                    e.MapRightKey("ActionInfoID");
+                });
+           
+            this.HasMany(e => e.RoleInfo)
+                .WithMany(e => e.UserInfo)
+                .Map(e =>
+                {
+                    e.ToTable("UserInfoRoleInfo");
+                    e.MapLeftKey("UserInfoID");
+                    e.MapRightKey("RoleInfoID");
+                });
         }
+
+        #region 示例
+        //public UserInfoMapping()
+        //{
+        //    // Primary Key
+        //    this.HasKey(e => e.UserInfoID);
+
+        //    // Properties
+        //    this.Property(e => e.UserInfoID)
+        //        .IsRequired()
+        //        .HasMaxLength(10);
+
+        //    // Table & Column Mappings
+        //    this.ToTable("UserInfo");
+
+        //    // Relationships
+        //    this.HasOptional(e => e.OtherClass)
+        //        .WithMany(e => e.UserInfo)
+        //        .HasForeignKey(e => e.OtherClassID);
+        //}
+        #endregion 示例
     }
 }
 

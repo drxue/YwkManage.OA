@@ -9,7 +9,7 @@ namespace  YwkManage.OA.Model.ModelClass
 {
     public partial class DoctorRegister
     {
-        public int DID { get; set; }
+        public int DoctorRegisterID { get; set; }
         public string EmployeeID { get; set; }
         public string CertifiedStatus { get; set; }
         public string Name { get; set; }

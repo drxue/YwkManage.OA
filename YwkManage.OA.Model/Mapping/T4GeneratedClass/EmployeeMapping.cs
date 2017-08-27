@@ -10,7 +10,7 @@
 // <copyright file="EmployeeModelMapping.generated.cs">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-08-27 11:06
+//        生成时间：2017-08-27 14:27
 // </copyright>
 //------------------------------------------------------------------------------
 
@@ -30,27 +30,40 @@ namespace YwkManage.OA.Model.Mapping
 	/// </summary> 
 	public partial class EmployeeMapping:EntityTypeConfiguration<Employee>
 	{
-		//示例
 		//public EmployeeMapping()
-		//{
-		//// Primary Key
-		//this.HasKey(e => e.LID);
-		//// Properties
-		//this.Property(e => e.EmployeeID)
-		//    .IsRequired()
-		//    .HasMaxLength(10);
-		//this.Property(e => e.Destination)
-		//    .HasMaxLength(50);
-		//// Table & Column Mappings
-		//this.ToTable("Leave");
-		//// Relationships
-		//this.HasOptional(e => e.ProjectClassify)
-		//    .WithMany(e => e.Leave)
-		//    .HasForeignKey(e => e.ProjectClassifyID);
-		//this.HasRequired(e => e.Employees)
-		//    .WithMany(e => e.Leave)
-		//    .HasForeignKey(e => e.EmployeeID);
-		//}
+        //{
+		//	 // Primary Key
+		//	 this.HasKey(e => e.EmployeeID);
+
+		//	 // Properties
+		//
+		//	 // Table & Column Mappings
+		//   this.ToTable("Employee");
+
+		//	 // Relationships
+		//
+        //}
+
+        #region 示例
+        //public EmployeeMapping()
+        //{
+        //    // Primary Key
+        //    this.HasKey(e => e.EmployeeID);
+
+        //    // Properties
+        //    this.Property(e => e.EmployeeID)
+        //        .IsRequired()
+        //        .HasMaxLength(10);
+
+        //    // Table & Column Mappings
+        //    this.ToTable("Employee");
+
+        //    // Relationships
+        //    this.HasOptional(e => e.OtherClass)
+        //        .WithMany(e => e.Employee)
+        //        .HasForeignKey(e => e.OtherClassID);
+        //}
+        #endregion 示例
 	}
 }
 	

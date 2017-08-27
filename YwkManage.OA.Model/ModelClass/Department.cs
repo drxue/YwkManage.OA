@@ -32,9 +32,6 @@ namespace YwkManage.OA.Model.ModelClass
         public string Comment { get; set; }
 
         //Foreign key
-        //public string DepartmentDeputyDirectorID { get; set; }
-        //public string DepartmentDirectorID { get; set; }
-        //public string HeadNurseID { get; set; }
 
         //Navigation property
         [JsonIgnore]

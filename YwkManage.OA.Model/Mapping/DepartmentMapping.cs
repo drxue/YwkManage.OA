@@ -38,12 +38,17 @@ namespace YwkManage.OA.Model.Mapping
             // Table & Column Mappings
             //this.ToTable("Department");
             // Relationships
-            this.HasRequired(e => e.DepartmentDirector)
-                .WithRequiredPrincipal();
-            this.HasRequired(e => e.DepartmentDeputyDirector)
-                .WithRequiredPrincipal();
-            this.HasRequired(e => e.HeadNurse)
-                .WithRequiredPrincipal();
+            this.HasOptional(e => e.DepartmentDirector)
+                .WithOptionalDependent()
+                .Map(e => e.MapKey("DepartmentDirectorID"));
+
+            this.HasOptional(e => e.DepartmentDeputyDirector)
+                .WithOptionalDependent()
+                .Map(e => e.MapKey("DepartmentDeputyDirectorID"));
+
+            this.HasOptional(e => e.HeadNurse)
+                .WithOptionalDependent()
+                .Map(e => e.MapKey("HeadNurseID"));
 
 
 

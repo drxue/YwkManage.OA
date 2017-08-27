@@ -74,21 +74,17 @@
     <Compile Include="Mapping\TitleLevelInfoMapping.cs" />
     <Compile Include="Mapping\UserInfoMapping.cs" />
     <Compile Include="Mapping\WardMapping.cs" />
-    <Compile Include="Migrations\201708151256440_Inital.cs" />
-    <Compile Include="Migrations\201708151256440_Inital.Designer.cs">
-      <DependentUpon>201708151256440_Inital.cs</DependentUpon>
+    <Compile Include="Migrations\201708270517156_Initial.cs" />
+    <Compile Include="Migrations\201708270517156_Initial.Designer.cs">
+      <DependentUpon>201708270517156_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708200733103_addAContact.cs" />
-    <Compile Include="Migrations\201708200733103_addAContact.Designer.cs">
-      <DependentUpon>201708200733103_addAContact.cs</DependentUpon>
+    <Compile Include="Migrations\201708270617495_InitialA.cs" />
+    <Compile Include="Migrations\201708270617495_InitialA.Designer.cs">
+      <DependentUpon>201708270617495_InitialA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708251718085_Fruentapi.cs" />
-    <Compile Include="Migrations\201708251718085_Fruentapi.Designer.cs">
-      <DependentUpon>201708251718085_Fruentapi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270307390_api1.cs" />
-    <Compile Include="Migrations\201708270307390_api1.Designer.cs">
-      <DependentUpon>201708270307390_api1.cs</DependentUpon>
+    <Compile Include="Migrations\201708270631424_InitialB.cs" />
+    <Compile Include="Migrations\201708270631424_InitialB.Designer.cs">
+      <DependentUpon>201708270631424_InitialB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
@@ -108,22 +104,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708151256440_Inital.resx">
-      <DependentUpon>201708151256440_Inital.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708200733103_addAContact.resx">
-      <DependentUpon>201708200733103_addAContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251718085_Fruentapi.resx">
-      <DependentUpon>201708251718085_Fruentapi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270307390_api1.resx">
-      <DependentUpon>201708270307390_api1.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708270517156_Initial.resx">
+      <DependentUpon>201708270517156_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708270617495_InitialA.resx">
+      <DependentUpon>201708270617495_InitialA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708270631424_InitialB.resx">
+      <DependentUpon>201708270631424_InitialB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

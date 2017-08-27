@@ -33,7 +33,7 @@ namespace YwkManage.OA.Model.Mapping
         public ContactMapping()
         {
             // Primary Key
-            this.HasKey(e => e.CID);
+            this.HasKey(e => e.ContactID);
             //// Properties
             //this.Property(e => e.EmployeeID)
             //    .IsRequired()
@@ -42,14 +42,11 @@ namespace YwkManage.OA.Model.Mapping
             //    .HasMaxLength(50);
             //// Table & Column Mappings
             //this.ToTable("Leave");
-            //// Relationships
-            //this.HasRequired(e => e.Department);
-            //this.HasOptional(e => e.ProjectClassify)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.ProjectClassifyID);
-            //this.HasRequired(e => e.Employees)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.EmployeeID);
+            // Relationships
+            this.HasOptional(e => e.Department)
+                .WithOptionalDependent()
+                .Map(e => e.MapKey("DepartmentID"));
+            
         }
     }
 }
