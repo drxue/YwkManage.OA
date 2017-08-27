@@ -33,21 +33,20 @@ namespace YwkManage.OA.Model.Mapping
         {
             // Primary Key
             this.HasKey(e => e.DepartmenID);
-            //// Properties
-            //this.Property(e => e.EmployeeID)
-            //    .IsRequired()
-            //    .HasMaxLength(10);
-            //this.Property(e => e.Destination)
-            //    .HasMaxLength(50);
-            //// Table & Column Mappings
-            //this.ToTable("Leave");
-            //// Relationships
-            //this.HasOptional(e => e.ProjectClassify)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.ProjectClassifyID);
-            //this.HasRequired(e => e.Employees)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.EmployeeID);
+            // Properties
+
+            // Table & Column Mappings
+            //this.ToTable("Department");
+            // Relationships
+            this.HasRequired(e => e.DepartmentDirector)
+                .WithRequiredPrincipal();
+            this.HasRequired(e => e.DepartmentDeputyDirector)
+                .WithRequiredPrincipal();
+            this.HasRequired(e => e.HeadNurse)
+                .WithRequiredPrincipal();
+
+
+
         }
     }
 }

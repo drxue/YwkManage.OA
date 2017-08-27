@@ -11,14 +11,14 @@ namespace  YwkManage.OA.Model.ModelClass
     {
         public TitleLevelInfo()
         {
-            TitleAward = new HashSet<TitleAward>();
+           // TitleAward = new HashSet<TitleAward>();
         }
         //基本属性
         public int TitleID { get; set; }
         public string TitleName { get; set; }
         public int TitleLevel { get; set; }
         //导航属性
-        [JsonIgnore]
-        public virtual ICollection<TitleAward> TitleAward { get; set; }
+        //[JsonIgnore]
+        //public virtual ICollection<TitleAward> TitleAward { get; set; }
     }
 }

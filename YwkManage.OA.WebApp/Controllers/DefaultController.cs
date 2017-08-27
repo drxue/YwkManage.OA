@@ -15,8 +15,10 @@ namespace YwkManage.OA.WebApp.Controllers
         // GET: Default
         public ActionResult Index()
         {
-            var temp = ContactService.LoadEntities(e => true);
-            ViewData.Model = temp;
+            //var temp = ContactService.LoadEntities(e => true);
+            //ViewData.Model = temp;
+            //return View();
+            //var ulBuilder = new TagBuilder("ul");
             return View();
         }
     }

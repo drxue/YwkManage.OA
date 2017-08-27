@@ -28,26 +28,17 @@ namespace YwkManage.OA.Model.Mapping
     /// </summary> 
     public partial class EmployeeMapping : EntityTypeConfiguration<Employee>
     {
-        //示例
         public EmployeeMapping()
         {
             // Primary Key
             this.HasKey(e => e.EmployeeID);
-            //// Properties
-            //this.Property(e => e.EmployeeID)
-            //    .IsRequired()
-            //    .HasMaxLength(10);
-            //this.Property(e => e.Destination)
-            //    .HasMaxLength(50);
-            //// Table & Column Mappings
-            //this.ToTable("Leave");
-            //// Relationships
-            //this.HasOptional(e => e.ProjectClassify)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.ProjectClassifyID);
-            //this.HasRequired(e => e.Employees)
-            //    .WithMany(e => e.Leave)
-            //    .HasForeignKey(e => e.EmployeeID);
+            // Properties
+            
+            // Relationships
+            this.HasRequired(e => e.Department)
+                .WithMany(c => c.Employee);
+
+            
         }
     }
 }

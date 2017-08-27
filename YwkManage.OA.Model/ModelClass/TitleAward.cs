@@ -16,9 +16,9 @@ namespace  YwkManage.OA.Model.ModelClass
         public string AwardHospital { get; set; }
         public DateTime? UpdateDate { get; set; }
         //导航属性
-        [JsonIgnore]
-        public virtual TitleLevelInfo TitleLevelInfo { get; set; }
-        [JsonIgnore]
-        public virtual Employee Employee { get; set; }
+        //[JsonIgnore]
+        //public virtual TitleLevelInfo TitleLevelInfo { get; set; }
+        //[JsonIgnore]
+        //public virtual Employee Employee { get; set; }
     }
 }

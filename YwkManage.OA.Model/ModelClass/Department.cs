@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace YwkManage.OA.Model.ModelClass
 {
+    /// <summary>
+    /// 科室表
+    /// </summary>
     public partial class Department
     {
         public Department()
         {
-            Leave = new HashSet<Leave>();
-            Ward = new HashSet<Ward>();
+            Employee = new HashSet<Employee>();
+            //Leave = new HashSet<Leave>();
+            //Ward = new HashSet<Ward>();
+            
         }
+        //Primary key
         public int DepartmenID { get; set; }
         public string DepartmentName { get; set; }
         public Nullable<int> BedNumbers { get; set; }
@@ -25,14 +31,24 @@ namespace YwkManage.OA.Model.ModelClass
         public Nullable<bool> TechnicalFlag { get; set; }
         public string Comment { get; set; }
 
-        public string DepartmentDeputyDirectorID { get; set; }
-        public string DepartmentDirectorID { get; set; }
-        public string HeadNurseID { get; set; }
+        //Foreign key
+        //public string DepartmentDeputyDirectorID { get; set; }
+        //public string DepartmentDirectorID { get; set; }
+        //public string HeadNurseID { get; set; }
 
-        //导航属性
+        //Navigation property
         [JsonIgnore]
-        public virtual ICollection<Leave> Leave { get; set; }
+        public virtual ICollection<Employee> Employee  { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Ward> Ward { get; set; }
+        public virtual Employee DepartmentDirector { get; set; }
+        [JsonIgnore]
+        public virtual Employee DepartmentDeputyDirector { get; set; }
+        [JsonIgnore]
+        public virtual Employee HeadNurse { get; set; }
+
+        //[JsonIgnore]
+        //public virtual ICollection<Leave> Leave { get; set; }
+        //[JsonIgnore]
+        //public virtual ICollection<Ward> Ward { get; set; }
     }
 }

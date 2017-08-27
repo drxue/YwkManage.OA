@@ -25,7 +25,7 @@ namespace YwkManage.OA.Model.Migrations
             {
                 EmployeeID = "2000004",
                 Gender = "男",
-                Department = "医务科",
+               // Department = "医务科",
                 Telephone = "",
                 WorkPhone = "88931886",
                 MobilePhone = "13958760606",

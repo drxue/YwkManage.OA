@@ -82,6 +82,14 @@
     <Compile Include="Migrations\201708200733103_addAContact.Designer.cs">
       <DependentUpon>201708200733103_addAContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708251718085_Fruentapi.cs" />
+    <Compile Include="Migrations\201708251718085_Fruentapi.Designer.cs">
+      <DependentUpon>201708251718085_Fruentapi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708270307390_api1.cs" />
+    <Compile Include="Migrations\201708270307390_api1.Designer.cs">
+      <DependentUpon>201708270307390_api1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
     <Compile Include="ModelClass\Contact.cs" />
@@ -105,6 +113,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708200733103_addAContact.resx">
       <DependentUpon>201708200733103_addAContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708251718085_Fruentapi.resx">
+      <DependentUpon>201708251718085_Fruentapi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708270307390_api1.resx">
+      <DependentUpon>201708270307390_api1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

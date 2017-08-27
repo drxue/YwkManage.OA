@@ -8,6 +8,7 @@ using Spring.Web.Mvc;
 
 namespace YwkManage.OA.WebApp
 {
+    //启用Spring.net需要使用SpringMvcApplication
     public class MvcApplication : SpringMvcApplication//System.Web.HttpApplication
     {
         protected void Application_Start()

@@ -43,6 +43,7 @@ namespace YwkManage.OA.Model.Mapping
             //// Table & Column Mappings
             //this.ToTable("Leave");
             //// Relationships
+            //this.HasRequired(e => e.Department);
             //this.HasOptional(e => e.ProjectClassify)
             //    .WithMany(e => e.Leave)
             //    .HasForeignKey(e => e.ProjectClassifyID);
