@@ -9,8 +9,9 @@ namespace  YwkManage.OA.Model.ModelClass
 {
     public partial class DoctorRegister
     {
+        //Primary Key
         public int DoctorRegisterID { get; set; }
-        public string EmployeeID { get; set; }
+        //public string EmployeeID { get; set; }
         public string CertifiedStatus { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
@@ -27,5 +28,7 @@ namespace  YwkManage.OA.Model.ModelClass
         public string MedicalInstitutions { get; set; }
         public DateTime? UpdateDate { get; set; }
         public string RegisterStatus { get; set; }
+        //Navigation Property
+        public virtual Employee Employee { get; set; }
     }
 }

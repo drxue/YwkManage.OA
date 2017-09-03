@@ -17,8 +17,6 @@ namespace YwkManage.OA.Model.ModelClass
         //基本属性
         public int WardID { get; set; }
         public string WardName { get; set; }
-        //public string HeadNurseID { get; set; }
-        // public string DeputyHeadNurseID { get; set; }
         public Nullable<int> BedNumbers { get; set; }
         public Nullable<int> DesignedBedNumbers { get; set; }
         //导航属性

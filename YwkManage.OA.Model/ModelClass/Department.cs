@@ -20,7 +20,7 @@ namespace YwkManage.OA.Model.ModelClass
 
         }
         //Primary key
-        public int DepartmenID { get; set; }
+        public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
         public Nullable<int> BedNumbers { get; set; }
         public Nullable<int> StatisticsBedNumbers { get; set; }

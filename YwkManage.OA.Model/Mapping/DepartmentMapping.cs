@@ -32,7 +32,7 @@ namespace YwkManage.OA.Model.Mapping
         public DepartmentMapping()
         {
             // Primary Key
-            this.HasKey(e => e.DepartmenID);
+            this.HasKey(e => e.DepartmentID);
             // Properties
 
             // Table & Column Mappings

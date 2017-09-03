@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="DataManage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4GeneratedClass\ActionInfoBll.generated.cs" />
     <Compile Include="T4GeneratedClass\ContactBll.generated.cs" />
@@ -79,6 +81,9 @@
       <Project>{cf109db0-bc2f-48f2-80c7-657270c558e4}</Project>
       <Name>YwkManage.OA.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

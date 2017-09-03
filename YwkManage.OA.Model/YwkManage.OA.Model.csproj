@@ -86,6 +86,14 @@
     <Compile Include="Migrations\201708271648499_departmentWardRelationship.Designer.cs">
       <DependentUpon>201708271648499_departmentWardRelationship.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708281541026_Doctor.cs" />
+    <Compile Include="Migrations\201708281541026_Doctor.Designer.cs">
+      <DependentUpon>201708281541026_Doctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709031453544_changeDepartment.cs" />
+    <Compile Include="Migrations\201709031453544_changeDepartment.Designer.cs">
+      <DependentUpon>201709031453544_changeDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
     <Compile Include="ModelClass\Contact.cs" />
@@ -116,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708271648499_departmentWardRelationship.resx">
       <DependentUpon>201708271648499_departmentWardRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708281541026_Doctor.resx">
+      <DependentUpon>201708281541026_Doctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709031453544_changeDepartment.resx">
+      <DependentUpon>201709031453544_changeDepartment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

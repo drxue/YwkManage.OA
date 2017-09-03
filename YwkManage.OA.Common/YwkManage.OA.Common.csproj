@@ -40,8 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LambdaHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4ModelInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YwkManage.OA.Model\YwkManage.OA.Model.csproj">
+      <Project>{CF109DB0-BC2F-48F2-80C7-657270C558E4}</Project>
+      <Name>YwkManage.OA.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

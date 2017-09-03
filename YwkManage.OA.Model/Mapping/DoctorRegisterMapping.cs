@@ -41,7 +41,9 @@ namespace YwkManage.OA.Model.Mapping
             this.ToTable("DoctorRegister");
 
             // Relationships
-
+            this.HasRequired(e => e.Employee)
+                .WithOptional(e => e.DoctorRegister)
+                .Map(e => e.MapKey("EmployeeID"));
         }
 
         #region 示例

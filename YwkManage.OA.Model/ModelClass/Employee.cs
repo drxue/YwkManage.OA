@@ -13,8 +13,6 @@ namespace YwkManage.OA.Model.ModelClass
         {
             TitleAward = new HashSet<TitleAward>();
             Leave = new HashSet<Leave>();
-            //WardHeadNurse = new HashSet<Ward>();
-            //WardDeputyHeadNurse = new HashSet<Ward>();
         }
         //Primary key
         public string EmployeeID { get; set; }
@@ -37,12 +35,11 @@ namespace YwkManage.OA.Model.ModelClass
         //职称信息
         [JsonIgnore]
         public virtual ICollection<TitleAward> TitleAward { get; set; }
+        //职工外出登记
         [JsonIgnore]
         public virtual ICollection<Leave> Leave { get; set; }
-        //[JsonIgnore]
-        //public virtual ICollection<Ward> WardHeadNurse { get; set; } //一个员工可以担任多个病区护士长
-        //[JsonIgnore]
-        //public virtual ICollection<Ward> WardDeputyHeadNurse { get; set; }
+        //医师注册信息
+        public virtual DoctorRegister DoctorRegister { get; set; }
         #endregion
 
     }
