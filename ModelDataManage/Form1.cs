@@ -231,6 +231,15 @@ namespace YwkManage.OA.ModelDataManage
             MethodInfo miAdd = typeDal.GetMethod("AddEntity");
             object[] arg1 = new object[] { titleLevelInfo };
             object result =miAdd.Invoke(dal, arg1);
+            //SaveChange()
+            MethodInfo miSaveChange = typeDal.GetMethod("SaveChanges");
+            object[] argEmpty = new object[] { };
+            if ((bool)miSaveChange.Invoke(dal, argEmpty) )
+            {
+                MessageBox.Show("添加成功,数据库保存成功。");
+            }
+            
+
             if (result!=null)
             {
                     MessageBox.Show("添加成功");

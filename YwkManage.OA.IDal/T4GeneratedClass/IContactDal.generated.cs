@@ -9,7 +9,7 @@
 // <copyright file="IContactDAL.generated.cs">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-09-02 22:51
+//        生成时间：2017-09-05 00:22
 // </copyright>
 //------------------------------------------------------------------------------
 

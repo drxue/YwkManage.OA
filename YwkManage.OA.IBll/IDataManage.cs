@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +11,18 @@ namespace YwkManage.OA.IBll
     /// </summary>
     public partial interface IDataManage
     {
-        IQueryable GetAllEntities(string modelName);
+        object DalMethiodInvoke(string modelName, string methodName, object[] parameters);
+        IQueryable LoadAllEntities(string modelName);
+        IQueryable LoadEntities(string modelName, object[] parameters);
+        object AddEntity(string modelName, object modelInstance);
+        object AddEntities(string modelName, object[] modelInstances);
+        bool DeleteEntity(string modelName, object modelInstance);
+        bool EditEntity(string modelName, object modelInstance);
+        bool SaveChanges(object dalInstance, Type dalType);
         object GetModelInstance(string modelName);
         object GetDalInstance(string modelName);
+        Type GetModelType(string modelName);
+        Type GetDalType(string modelName);
+
     }
 }

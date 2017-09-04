@@ -69,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YwkManage.OA.Common\YwkManage.OA.Common.csproj">
+      <Project>{55F5C0F3-0BDE-4A3C-9608-584DC874E651}</Project>
+      <Name>YwkManage.OA.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YwkManage.OA.IBll\YwkManage.OA.IBll.csproj">
       <Project>{c85d39c8-9488-43cb-8155-afcbf260dbea}</Project>
       <Name>YwkManage.OA.IBll</Name>
