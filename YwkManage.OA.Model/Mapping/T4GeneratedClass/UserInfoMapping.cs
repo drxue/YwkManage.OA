@@ -10,7 +10,7 @@
 // <copyright file="UserInfoModelMapping.generated.cs">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-09-05 00:22
+//        生成时间：2017-09-12 23:50
 // </copyright>
 //------------------------------------------------------------------------------
 
