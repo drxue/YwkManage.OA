@@ -40,6 +40,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4GeneratedClass\ActionInfoBll.generated.cs" />
     <Compile Include="T4GeneratedClass\ContactBll.generated.cs" />
+    <Compile Include="T4GeneratedClass\DepartmentAttributeBll.generated.cs" />
     <Compile Include="T4GeneratedClass\DepartmentBll.generated.cs" />
     <Compile Include="T4GeneratedClass\DoctorRegisterBll.generated.cs" />
     <Compile Include="T4GeneratedClass\EmployeeBll.generated.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="T4GeneratedClass\TitleLevelInfoBll.generated.cs" />
     <Compile Include="T4GeneratedClass\UserInfoBll.generated.cs" />
     <Compile Include="T4GeneratedClass\WardBll.generated.cs" />
+    <Compile Include="TypeConvert.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

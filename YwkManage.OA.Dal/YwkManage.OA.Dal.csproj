@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4GeneratedClass\ActionInfoDal.generated.cs" />
     <Compile Include="T4GeneratedClass\ContactDal.generated.cs" />
+    <Compile Include="T4GeneratedClass\DepartmentAttributeDal.generated.cs" />
     <Compile Include="T4GeneratedClass\DepartmentDal.generated.cs" />
     <Compile Include="T4GeneratedClass\DoctorRegisterDal.generated.cs" />
     <Compile Include="T4GeneratedClass\EmployeeDal.generated.cs" />

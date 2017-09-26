@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4GeneratedClass\IActionInfoBll.generated.cs" />
     <Compile Include="T4GeneratedClass\IContactBll.generated.cs" />
+    <Compile Include="T4GeneratedClass\IDepartmentAttributeBll.generated.cs" />
     <Compile Include="T4GeneratedClass\IDepartmentBll.generated.cs" />
     <Compile Include="T4GeneratedClass\IDoctorRegisterBll.generated.cs" />
     <Compile Include="T4GeneratedClass\IEmployeeBll.generated.cs" />

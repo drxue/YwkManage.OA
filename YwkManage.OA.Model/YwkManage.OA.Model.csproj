@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Mapping\ActionInfoMapping.cs" />
     <Compile Include="Mapping\ContactMapping.cs" />
+    <Compile Include="Mapping\DepartmentAttributeMapping.cs" />
     <Compile Include="Mapping\DepartmentMapping.cs" />
     <Compile Include="Mapping\DoctorRegisterMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Mapping\RoleInfoMapping.cs" />
     <Compile Include="Mapping\T4GeneratedClass\ActionInfoMapping.cs" />
     <Compile Include="Mapping\T4GeneratedClass\ContactMapping.cs" />
+    <Compile Include="Mapping\T4GeneratedClass\DepartmentAttributeMapping.cs" />
     <Compile Include="Mapping\T4GeneratedClass\DepartmentMapping.cs" />
     <Compile Include="Mapping\T4GeneratedClass\DoctorRegisterMapping.cs" />
     <Compile Include="Mapping\T4GeneratedClass\EmployeeMapping.cs" />
@@ -94,10 +96,51 @@
     <Compile Include="Migrations\201709031453544_changeDepartment.Designer.cs">
       <DependentUpon>201709031453544_changeDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709221147410_abc.cs" />
+    <Compile Include="Migrations\201709221147410_abc.Designer.cs">
+      <DependentUpon>201709221147410_abc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230630427_modifyModel.cs" />
+    <Compile Include="Migrations\201709230630427_modifyModel.Designer.cs">
+      <DependentUpon>201709230630427_modifyModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230659565_modifyModel2.cs" />
+    <Compile Include="Migrations\201709230659565_modifyModel2.Designer.cs">
+      <DependentUpon>201709230659565_modifyModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230714581_modifyModel3.cs" />
+    <Compile Include="Migrations\201709230714581_modifyModel3.Designer.cs">
+      <DependentUpon>201709230714581_modifyModel3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230718063_modifyModel4.cs" />
+    <Compile Include="Migrations\201709230718063_modifyModel4.Designer.cs">
+      <DependentUpon>201709230718063_modifyModel4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230728372_modifyModel5.cs" />
+    <Compile Include="Migrations\201709230728372_modifyModel5.Designer.cs">
+      <DependentUpon>201709230728372_modifyModel5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230754096_modifyModel6.cs" />
+    <Compile Include="Migrations\201709230754096_modifyModel6.Designer.cs">
+      <DependentUpon>201709230754096_modifyModel6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230759183_modifyModel7.cs" />
+    <Compile Include="Migrations\201709230759183_modifyModel7.Designer.cs">
+      <DependentUpon>201709230759183_modifyModel7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709230828078_modifyModel8.cs" />
+    <Compile Include="Migrations\201709230828078_modifyModel8.Designer.cs">
+      <DependentUpon>201709230828078_modifyModel8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709260938056_modifyModel9.cs" />
+    <Compile Include="Migrations\201709260938056_modifyModel9.Designer.cs">
+      <DependentUpon>201709260938056_modifyModel9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
     <Compile Include="ModelClass\Contact.cs" />
     <Compile Include="ModelClass\Department.cs" />
+    <Compile Include="ModelClass\DepartmentAttribute.cs" />
     <Compile Include="ModelClass\DoctorRegister.cs" />
     <Compile Include="ModelClass\Employee.cs" />
     <Compile Include="ModelClass\Leave.cs" />
@@ -130,6 +173,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709031453544_changeDepartment.resx">
       <DependentUpon>201709031453544_changeDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709221147410_abc.resx">
+      <DependentUpon>201709221147410_abc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230630427_modifyModel.resx">
+      <DependentUpon>201709230630427_modifyModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230659565_modifyModel2.resx">
+      <DependentUpon>201709230659565_modifyModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230714581_modifyModel3.resx">
+      <DependentUpon>201709230714581_modifyModel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230718063_modifyModel4.resx">
+      <DependentUpon>201709230718063_modifyModel4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230728372_modifyModel5.resx">
+      <DependentUpon>201709230728372_modifyModel5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230754096_modifyModel6.resx">
+      <DependentUpon>201709230754096_modifyModel6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230759183_modifyModel7.resx">
+      <DependentUpon>201709230759183_modifyModel7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709230828078_modifyModel8.resx">
+      <DependentUpon>201709230828078_modifyModel8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709260938056_modifyModel9.resx">
+      <DependentUpon>201709260938056_modifyModel9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

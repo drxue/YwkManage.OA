@@ -21,20 +21,20 @@ namespace YwkManage.OA.Model.Migrations
             //  to avoid creating duplicate seed data.
 
             //添加Contacts记录
-            context.Contact.AddOrUpdate(e => e.EmployeeID, new Contact
-            {
-                EmployeeID = "2000004",
-                Gender = "男",
-               // Department = "医务科",
-                Telephone = "",
-                WorkPhone = "88931886",
-                MobilePhone = "13958760606",
-                ShortPhone66 = "660606",
-                ShortPhone77 = "770808",
-                Email = "abc@yahoo.com",
-                Comment = "only for test"
+            //context.Contact.AddOrUpdate(e => e.EmployeeID, new Contact
+            //{
+            //    EmployeeID = "2000004",
+            //    Gender = "男",
+            //   // Department = "医务科",
+            //    Telephone = "",
+            //    WorkPhone = "88931886",
+            //    MobilePhone = "13958760606",
+            //    ShortPhone66 = "660606",
+            //    ShortPhone77 = "770808",
+            //    Email = "abc@yahoo.com",
+            //    Comment = "only for test"
 
-            });
+            //});
         }
     }
 }

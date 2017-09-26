@@ -39,17 +39,17 @@ namespace YwkManage.OA.Model.Mapping
             //this.ToTable("Department");
             // Relationships
             this.HasOptional(e => e.DepartmentDirector)
-                .WithOptionalDependent()
-                .Map(e => e.MapKey("DepartmentDirectorID"));
-
+                .WithMany(e => e.DepartmentDirector)
+                .HasForeignKey(e => e.DepartmentDirectorID);
+            this.HasOptional(e => e.DepartmentHeadNurse)
+                .WithMany(e => e.DepartmentHeadNurse)
+                .HasForeignKey(e => e.DepartmentHeadNurseID);
             this.HasOptional(e => e.DepartmentDeputyDirector)
-                .WithOptionalDependent()
-                .Map(e => e.MapKey("DepartmentDeputyDirectorID"));
-
-            this.HasOptional(e => e.HeadNurse)
-                .WithOptionalDependent()
-                .Map(e => e.MapKey("HeadNurseID"));
-
+                .WithMany(e => e.DepartmentDeputyDirector)
+                .HasForeignKey(e => e.DepartmentDeputyDirectorID);
+            this.HasOptional(e => e.DepartmentAttribute)
+                .WithMany(e => e.Departments)
+                .HasForeignKey(e => e.DepartmentAttributeID);
 
 
         }

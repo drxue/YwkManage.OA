@@ -109,7 +109,7 @@ namespace YwkManage.OA.ModelDataManage
         /// <param name="e"></param>
         private void btnInput_Click(object sender, EventArgs e)
         {
-            
+
             string modelName = cmbModel.SelectedItem.ToString();
             if (modelName == string.Empty || modelName == null)
             {
@@ -117,9 +117,14 @@ namespace YwkManage.OA.ModelDataManage
             }
             IReflectedService reflectedService = new ReflectedService(modelName);//1 创建bll写入类
             DataTable dt = dataGridView1.DataSource as DataTable; //获取datagridview1的数据源作为写入内容
-            if (reflectedService.AddEntities(dt))
+            int returnCount = reflectedService.AddEntities(dt);
+            if (returnCount > 0)
             {
-                MessageBox.Show("导入成功！");
+                MessageBox.Show("导入成功"+returnCount+"条记录！");
+                //载入所有记录到DataTable
+                DataTable dt1 = reflectedService.LoadAllEntitiestoDataTable();
+                //绑定数据到数据控件
+                dataGridViewModel.DataSource = dt1;
             }
             else
             {
@@ -199,7 +204,7 @@ namespace YwkManage.OA.ModelDataManage
         {
             //获取导出文件名称
             SaveFileDialog sd = new SaveFileDialog();
-            if (cmbModel.SelectedItem==null)
+            if (cmbModel.SelectedItem == null)
             {
                 return;
             }
@@ -209,8 +214,8 @@ namespace YwkManage.OA.ModelDataManage
             if (result == DialogResult.OK)
             {
                 ExcelHelper excelHelper = new ExcelHelper(sd.FileName);
-               int count= excelHelper.DataTableToExcel(dataGridViewModel.DataSource as DataTable, cmbModel.SelectedItem.ToString(), true);
-                if (count>0)
+                int count = excelHelper.DataTableToExcel(dataGridViewModel.DataSource as DataTable, cmbModel.SelectedItem.ToString(), true);
+                if (count > 0)
                 {
                     MessageBox.Show("成功导出" + count + "条记录！");
                 }
@@ -218,6 +223,34 @@ namespace YwkManage.OA.ModelDataManage
                 {
                     MessageBox.Show("导出失败！");
                 }
+            }
+
+        }
+        /// <summary>
+        /// 清空模型对应的数据库数据表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClearData_Click(object sender, EventArgs e)
+        {
+            string modelName = cmbModel.SelectedItem.ToString();
+            if (modelName == string.Empty || modelName == null)
+            {
+                MessageBox.Show("Please select a Model,then click this botton!");
+                return;
+            }
+            IReflectedService rs = new ReflectedService(modelName);
+            if (rs.DeleteAllEntities())
+            {
+                MessageBox.Show("Empty the Table is Done!");
+                //载入所有记录到DataTable
+                DataTable dt = rs.LoadAllEntitiestoDataTable();
+                //绑定数据到数据控件
+                dataGridViewModel.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Something wrong!");
             }
 
         }

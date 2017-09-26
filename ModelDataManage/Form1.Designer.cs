@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewModel = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnClearData = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.cmbModel = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -99,15 +101,30 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 454);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Format = "D";
+            this.dataGridView1.RowTemplate.DefaultCellStyle.NullValue = null;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1530, 326);
             this.dataGridView1.TabIndex = 4;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnClearData);
             this.groupBox2.Controls.Add(this.btnExport);
             this.groupBox2.Controls.Add(this.cmbModel);
             this.groupBox2.Controls.Add(this.label2);
@@ -118,10 +135,21 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
+            // btnClearData
+            // 
+            this.btnClearData.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnClearData.Location = new System.Drawing.Point(655, 17);
+            this.btnClearData.Name = "btnClearData";
+            this.btnClearData.Size = new System.Drawing.Size(96, 33);
+            this.btnClearData.TabIndex = 6;
+            this.btnClearData.Text = "清空";
+            this.btnClearData.UseVisualStyleBackColor = true;
+            this.btnClearData.Click += new System.EventHandler(this.btnClearData_Click);
+            // 
             // btnExport
             // 
             this.btnExport.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExport.Location = new System.Drawing.Point(632, 16);
+            this.btnExport.Location = new System.Drawing.Point(530, 17);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(119, 33);
             this.btnExport.TabIndex = 5;
@@ -134,7 +162,7 @@
             this.cmbModel.FormattingEnabled = true;
             this.cmbModel.Location = new System.Drawing.Point(56, 22);
             this.cmbModel.Name = "cmbModel";
-            this.cmbModel.Size = new System.Drawing.Size(455, 23);
+            this.cmbModel.Size = new System.Drawing.Size(311, 23);
             this.cmbModel.TabIndex = 2;
             this.cmbModel.SelectedIndexChanged += new System.EventHandler(this.cmbModel_SelectedIndexChanged);
             this.cmbModel.TextChanged += new System.EventHandler(this.cmbModel_TextChanged);
@@ -143,7 +171,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(3, 22);
+            this.label2.Location = new System.Drawing.Point(3, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 19);
             this.label2.TabIndex = 1;
@@ -152,7 +180,7 @@
             // btnInput
             // 
             this.btnInput.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnInput.Location = new System.Drawing.Point(530, 16);
+            this.btnInput.Location = new System.Drawing.Point(428, 17);
             this.btnInput.Name = "btnInput";
             this.btnInput.Size = new System.Drawing.Size(96, 33);
             this.btnInput.TabIndex = 0;
@@ -249,6 +277,7 @@
         private System.Windows.Forms.DataGridView dataGridViewModel;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnClearData;
     }
 }
 

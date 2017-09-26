@@ -9,7 +9,7 @@
 // <copyright file="ActionInfoBll.generated.cs">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-09-12 23:50
+//        生成时间：2017-09-26 13:21
 // </copyright>
 //------------------------------------------------------------------------------
 

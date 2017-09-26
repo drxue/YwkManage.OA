@@ -55,6 +55,7 @@
       <LastOutputs>
 ..\YwkManage.OA.Bll\T4GeneratedClass\ActionInfoBll.generated.cs
 ..\YwkManage.OA.Bll\T4GeneratedClass\ContactBll.generated.cs
+..\YwkManage.OA.Bll\T4GeneratedClass\DepartmentAttributeBll.generated.cs
 ..\YwkManage.OA.Bll\T4GeneratedClass\DepartmentBll.generated.cs
 ..\YwkManage.OA.Bll\T4GeneratedClass\DoctorRegisterBll.generated.cs
 ..\YwkManage.OA.Bll\T4GeneratedClass\EmployeeBll.generated.cs
@@ -67,6 +68,7 @@
 ..\YwkManage.OA.Bll\T4GeneratedClass\WardBll.generated.cs
 ..\YwkManage.OA.Dal\T4GeneratedClass\ActionInfoDal.generated.cs
 ..\YwkManage.OA.Dal\T4GeneratedClass\ContactDal.generated.cs
+..\YwkManage.OA.Dal\T4GeneratedClass\DepartmentAttributeDal.generated.cs
 ..\YwkManage.OA.Dal\T4GeneratedClass\DepartmentDal.generated.cs
 ..\YwkManage.OA.Dal\T4GeneratedClass\DoctorRegisterDal.generated.cs
 ..\YwkManage.OA.Dal\T4GeneratedClass\EmployeeDal.generated.cs
@@ -79,6 +81,7 @@
 ..\YwkManage.OA.Dal\T4GeneratedClass\WardDal.generated.cs
 ..\YwkManage.OA.IBll\T4GeneratedClass\IActionInfoBll.generated.cs
 ..\YwkManage.OA.IBll\T4GeneratedClass\IContactBll.generated.cs
+..\YwkManage.OA.IBll\T4GeneratedClass\IDepartmentAttributeBll.generated.cs
 ..\YwkManage.OA.IBll\T4GeneratedClass\IDepartmentBll.generated.cs
 ..\YwkManage.OA.IBll\T4GeneratedClass\IDoctorRegisterBll.generated.cs
 ..\YwkManage.OA.IBll\T4GeneratedClass\IEmployeeBll.generated.cs
@@ -91,6 +94,7 @@
 ..\YwkManage.OA.IBll\T4GeneratedClass\IWardBll.generated.cs
 ..\YwkManage.OA.IDal\T4GeneratedClass\IActionInfoDal.generated.cs
 ..\YwkManage.OA.IDal\T4GeneratedClass\IContactDal.generated.cs
+..\YwkManage.OA.IDal\T4GeneratedClass\IDepartmentAttributeDal.generated.cs
 ..\YwkManage.OA.IDal\T4GeneratedClass\IDepartmentDal.generated.cs
 ..\YwkManage.OA.IDal\T4GeneratedClass\IDoctorRegisterDal.generated.cs
 ..\YwkManage.OA.IDal\T4GeneratedClass\IEmployeeDal.generated.cs
@@ -103,6 +107,7 @@
 ..\YwkManage.OA.IDal\T4GeneratedClass\IWardDal.generated.cs
 ..\YwkManage.OA.Model\Mapping\T4GeneratedClass\ActionInfoMapping.cs
 ..\YwkManage.OA.Model\Mapping\T4GeneratedClass\ContactMapping.cs
+..\YwkManage.OA.Model\Mapping\T4GeneratedClass\DepartmentAttributeMapping.cs
 ..\YwkManage.OA.Model\Mapping\T4GeneratedClass\DepartmentMapping.cs
 ..\YwkManage.OA.Model\Mapping\T4GeneratedClass\DoctorRegisterMapping.cs
 ..\YwkManage.OA.Model\Mapping\T4GeneratedClass\EmployeeMapping.cs

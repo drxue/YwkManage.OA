@@ -11,7 +11,7 @@ namespace  YwkManage.OA.Model.ModelClass
     {
         public int LeaveID { get; set; }
         public string EmployeeID { get; set; }
-        public int DepartmentID { get; set; }
+        public string  DepartmentName { get; set; } //记住实际当时科室名称
         public Nullable<int> ProjectClassifyID { get; set; }
         public string ProjectName { get; set; }
         public string Destination { get; set; }
@@ -22,7 +22,6 @@ namespace  YwkManage.OA.Model.ModelClass
         #region 导航属性
         public virtual ProjectClassify ProjectClassify { get; set; }
         public virtual Employee Employee { get; set; }
-        public virtual Department Department { get; set; }
 
         #endregion
 

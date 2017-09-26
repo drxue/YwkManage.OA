@@ -41,13 +41,18 @@ namespace YwkManage.OA.Model.Mapping
             this.ToTable("Ward");
 
             // Relationships
-            this.HasRequired(e => e.HeadNurse)
-                .WithOptional()
-                .Map(e => e.MapKey("HeadNurseID"));
+            //
+            this.HasOptional(e => e.HeadNurse)
+                .WithMany(e => e.WardHeadNurse)
+                .HasForeignKey(e => e.HeadNurseID);
             this.HasOptional(e => e.DeputyHeadNurse)
-                .WithOptionalDependent()
-                .Map(e => e.MapKey("DeputyHeadNurseID"));
+                .WithMany(e => e.WardDeputyHeadNurse)
+                .HasForeignKey(e => e.DeputyHeadNurseID);
+            this.HasOptional(e => e.WardDirector)
+                .WithMany(e => e.WardDirector)
+                .HasForeignKey(e => e.WardDirectorID);
 
+            //病区与科室多对多关系
             this.HasMany(e => e.Department)
                 .WithMany(e => e.Ward)
                 .Map(e =>

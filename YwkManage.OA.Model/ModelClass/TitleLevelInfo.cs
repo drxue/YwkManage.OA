@@ -15,13 +15,16 @@ namespace  YwkManage.OA.Model.ModelClass
         public TitleLevelInfo()
         {
             TitleAward = new HashSet<TitleAward>();
+            Employees = new HashSet<Employee>();
         }
         //基本属性
         public int TitleLevelInfoID { get; set; }
         public string TitleName { get; set; }
         public int TitleLevel { get; set; }
+        public bool DeleteFlag { get; set; }
         //导航属性
         [JsonIgnore]
         public virtual ICollection<TitleAward> TitleAward { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

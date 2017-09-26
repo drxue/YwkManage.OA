@@ -33,20 +33,15 @@ namespace YwkManage.OA.Model.Mapping
         public ContactMapping()
         {
             // Primary Key
-            this.HasKey(e => e.ContactID);
-            //// Properties
-            //this.Property(e => e.EmployeeID)
-            //    .IsRequired()
-            //    .HasMaxLength(10);
-            //this.Property(e => e.Destination)
-            //    .HasMaxLength(50);
-            //// Table & Column Mappings
-            //this.ToTable("Leave");
+            this.HasKey(e => e.EmployeeID);
+            // Properties
+
             // Relationships
-            this.HasOptional(e => e.Department)
-                .WithOptionalDependent()
-                .Map(e => e.MapKey("DepartmentID"));
-            
+            this.HasRequired(e => e.Employee)
+                .WithOptional(e => e.Contact);
+
+
+
         }
     }
 }

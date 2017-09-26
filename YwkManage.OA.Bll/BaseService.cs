@@ -27,7 +27,7 @@ namespace YwkManage.OA.Bll
 
         public bool DeleteEntity(T entity)
         {
-            CurrentDal.DelelteEntity(entity);
+            CurrentDal.DeleteEntity(entity);
             return CurrentDal.SaveChanges();
         }
 

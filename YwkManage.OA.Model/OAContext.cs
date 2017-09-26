@@ -39,6 +39,7 @@ namespace YwkManage.OA.Model
             modelBuilder.Configurations.Add(new TitleLevelInfoMapping());
             modelBuilder.Configurations.Add(new UserInfoMapping());
             modelBuilder.Configurations.Add(new WardMapping());
+            modelBuilder.Configurations.Add(new DepartmentAttributeMapping());
         }
         //注册模型类
         public virtual DbSet<ActionInfo> ActionInfo { get; set; }
@@ -53,6 +54,7 @@ namespace YwkManage.OA.Model
         public virtual DbSet<TitleLevelInfo> TitleLevelInfo { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
         public virtual DbSet<Ward> Ward { get; set; }
+        public virtual DbSet<DepartmentAttribute> DepartmentAttribute { get; set; }
 
 
     }

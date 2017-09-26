@@ -33,7 +33,7 @@ namespace YwkManage.OA.Model.Mapping
         public DoctorRegisterMapping()
         {
             // Primary Key
-            this.HasKey(e => e.DoctorRegisterID);
+            this.HasKey(e => e.EmployeeID);
 
             // Properties
 
@@ -42,8 +42,7 @@ namespace YwkManage.OA.Model.Mapping
 
             // Relationships
             this.HasRequired(e => e.Employee)
-                .WithOptional(e => e.DoctorRegister)
-                .Map(e => e.MapKey("EmployeeID"));
+                .WithOptional(e => e.DoctorRegister);
         }
 
         #region 示例

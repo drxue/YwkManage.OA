@@ -18,6 +18,7 @@ namespace  YwkManage.OA.Model.ModelClass
         public DateTime? AwardDate { get; set; }
         public string AwardHospital { get; set; }
         public DateTime? UpdateDate { get; set; }
+        public bool DeleteFlag { get; set; }
         //导航属性
         //[JsonIgnore]
         public virtual TitleLevelInfo TitleLevelInfo { get; set; }

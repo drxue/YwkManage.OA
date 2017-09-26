@@ -9,7 +9,7 @@
 // <copyright file="Service.xml">
 //  
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-09-12 23:50
+//        生成时间：2017-09-26 13:21
 // </copyright>
 -->
 	
@@ -22,6 +22,9 @@
 	</object>
 	<object name="DepartmentService" type="YwkManage.OA.Bll.DepartmentService,YwkManage.OA.Bll" singleton="false">
 		<property name="CurrentDal" ref="DepartmentDal" />
+	</object>
+	<object name="DepartmentAttributeService" type="YwkManage.OA.Bll.DepartmentAttributeService,YwkManage.OA.Bll" singleton="false">
+		<property name="CurrentDal" ref="DepartmentAttributeDal" />
 	</object>
 	<object name="DoctorRegisterService" type="YwkManage.OA.Bll.DoctorRegisterService,YwkManage.OA.Bll" singleton="false">
 		<property name="CurrentDal" ref="DoctorRegisterDal" />

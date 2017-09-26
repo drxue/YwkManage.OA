@@ -36,13 +36,16 @@ namespace YwkManage.OA.Model.Mapping
 
             #region Relationships
             //与科室关联
-            this.HasRequired(e => e.Department)
+            this.HasOptional(e => e.Department)
                 .WithMany(c => c.Employee)
                 .HasForeignKey(e => e.DepartmentID);
+
+            //与职称等级信息表关联
+            this.HasOptional(e => e.TitleLevelInfo)
+                .WithMany(u => u.Employees)
+                .HasForeignKey(m => m.TitleLevelInfoID);
+                
             #endregion
-
-
-
         }
     }
 }

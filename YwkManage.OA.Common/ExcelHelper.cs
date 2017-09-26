@@ -153,12 +153,40 @@ namespace YwkManage.OA.Common
                     {
                         IRow row = sheet.GetRow(i);
                         if (row == null) continue; //没有数据的行默认是null　　　　　　　
-
                         DataRow dataRow = data.NewRow();
                         for (int j = row.FirstCellNum; j < cellCount; ++j)
                         {
-                            if (row.GetCell(j) != null) //同理，没有数据的单元格都默认是null
-                                dataRow[j] = row.GetCell(j).ToString();
+                            ICell cell = row.GetCell(j);
+                            if (cell != null) //同理，没有数据的单元格都默认是null
+                            {
+                                //读取Excel格式，根据格式读取数据类型
+                                switch (cell.CellType)
+                                {
+                                    case CellType.Blank: //空数据类型处理
+                                        dataRow[j] = "";
+                                        break;
+                                    case CellType.String: //字符串类型
+                                        dataRow[j] = cell.StringCellValue;
+                                        break;
+                                    case CellType.Numeric: //数字类型                                   
+                                        if (DateUtil.IsCellDateFormatted(cell))
+                                        {
+                                            dataRow[j] = cell.DateCellValue;
+                                        }
+                                        else
+                                        {
+                                            dataRow[j] = cell.NumericCellValue;
+                                        }
+                                        break;
+                                    case CellType.Formula:
+                                        HSSFFormulaEvaluator e = new HSSFFormulaEvaluator(workbook);
+                                        dataRow[j] = e.Evaluate(cell).StringValue;
+                                        break;
+                                    default:
+                                        dataRow[j] = "";
+                                        break;
+                                }
+                            }
                         }
                         data.Rows.Add(dataRow);
                     }
@@ -169,7 +197,7 @@ namespace YwkManage.OA.Common
             catch (Exception ex)
             {
                 //throw ex;
-               // ("Exception: " + ex.Message);
+                // ("Exception: " + ex.Message);
                 return null;
             }
         }

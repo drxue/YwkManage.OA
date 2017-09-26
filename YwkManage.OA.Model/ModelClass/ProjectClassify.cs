@@ -16,6 +16,7 @@ namespace  YwkManage.OA.Model.ModelClass
         public int ProjectClassifyID { get; set; }
         public string ProjectClassifyName { get; set; }
         public string Description { get; set; }
+        public bool DeleteFlag { get; set; }
         //导航属性
         [JsonIgnore]
         public virtual ICollection<Leave> Leave { get; set; }

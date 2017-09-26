@@ -8,7 +8,7 @@
 // </auto-generated>
 // <copyright file="Dal.xml">
 //        所属工程：YwkManage.OA 中西医薛思源 siyuanxue@outlook.com
-//        生成时间：2017-09-12 23:50
+//        生成时间：2017-09-26 13:21
 // </copyright>
 -->
 	
@@ -16,6 +16,7 @@
 	<object name="ActionInfoDal" type="YwkManage.OA.Dal.ActionInfoDal,YwkManage.OA.Dal" singleton="false" />
 	<object name="ContactDal" type="YwkManage.OA.Dal.ContactDal,YwkManage.OA.Dal" singleton="false" />
 	<object name="DepartmentDal" type="YwkManage.OA.Dal.DepartmentDal,YwkManage.OA.Dal" singleton="false" />
+	<object name="DepartmentAttributeDal" type="YwkManage.OA.Dal.DepartmentAttributeDal,YwkManage.OA.Dal" singleton="false" />
 	<object name="DoctorRegisterDal" type="YwkManage.OA.Dal.DoctorRegisterDal,YwkManage.OA.Dal" singleton="false" />
 	<object name="EmployeeDal" type="YwkManage.OA.Dal.EmployeeDal,YwkManage.OA.Dal" singleton="false" />
 	<object name="LeaveDal" type="YwkManage.OA.Dal.LeaveDal,YwkManage.OA.Dal" singleton="false" />

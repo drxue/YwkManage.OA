@@ -34,13 +34,12 @@ namespace YwkManage.OA.IBll
         /// <returns></returns>
         bool AddEntities(List<object> modelInstances);
 
-
         /// <summary>
         /// 添加DataTable模型集合到数据库
         /// </summary>
         /// <param name="dt">含有标题行的DataTable</param>
         /// <returns></returns>
-        bool AddEntities(DataTable dt);
+        int AddEntities(DataTable dt);
 
         /// <summary>
         /// 删除记录到数据库
@@ -50,6 +49,12 @@ namespace YwkManage.OA.IBll
         bool DeleteEntity(object modelInstance);
 
         /// <summary>
+        /// 删除数据库表中所有记录
+        /// </summary>
+        /// <returns></returns>
+        bool DeleteAllEntities();
+
+        /// <summary>
         /// 编辑记录
         /// </summary>
         /// <param name="modelInstance"></param>
@@ -57,10 +62,23 @@ namespace YwkManage.OA.IBll
         bool EditEntity(object modelInstance);
 
         /// <summary>
+        /// 查询一条记录
+        /// </summary>
+        /// <param name="whereLambda"></param>
+        /// <returns></returns>
+        object LoadEntity(Expression whereLambda);
+
+        /// <summary>
         /// 获取类的所有数据集合
         /// </summary>
         /// <returns></returns>
         IQueryable LoadAllEntities();
+
+        /// <summary>
+        /// 查询所有记录ToList
+        /// </summary>
+        /// <returns></returns>
+        object LoadAllEntitiesToList();
 
         /// <summary>
         /// 获取模型类的部分集合
@@ -105,27 +123,24 @@ namespace YwkManage.OA.IBll
         /// 获取模型类实例
         /// </summary>
         /// <returns></returns>
-        object GetModelInstance();
+        object GetModelInstance(string modelName);
 
         /// <summary>
         /// 获取Dal类实例
         /// </summary>
         /// <returns></returns>
-        object GetDalInstance();
+        object GetDalInstance(string modelName);
 
         /// <summary>
         /// 获取模型类类型
         /// </summary>
         /// <returns></returns>
-        Type GetModelType();
+        Type GetModelType(string modelName);
 
         /// <summary>
         /// 获取Dal类类型
         /// </summary>
         /// <returns></returns>
-        Type GetDalType();
-
-
-
+        Type GetDalType(string modelName);
     }
 }

@@ -32,13 +32,13 @@ namespace YwkManage.OA.Dal
         {
             return Db.Set<T>().Add(entity);
         }
-
+                
         /// <summary>
         /// 删除记录
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public bool DelelteEntity(T entity)
+        public bool DeleteEntity(T entity)
         {
             Db.Entry(entity).State = EntityState.Deleted;
             return true;
@@ -56,6 +56,26 @@ namespace YwkManage.OA.Dal
         }
 
         /// <summary>
+        /// 返回总记录数
+        /// </summary>
+        /// <returns></returns>
+        public int EntityCount()
+        {
+            return LoadEntities(p => true).Count();
+        }
+
+        /// <summary>
+        /// Load the FisrtOrDefault entity
+        /// </summary>
+        /// <param name="whereLambda"></param>
+        /// <returns></returns>
+        public T LoadEntity(Expression<Func<T, bool>> whereLambda)
+        {
+            return LoadEntities(whereLambda).FirstOrDefault();
+
+        }
+
+        /// <summary>
         /// 查询记录
         /// </summary>
         /// <param name="whereLambda"></param>
@@ -63,7 +83,16 @@ namespace YwkManage.OA.Dal
         public IQueryable<T> LoadEntities(Expression<Func<T, bool>> whereLambda)
         {
            return  Db.Set<T>().Where(whereLambda);
+        }
 
+        /// <summary>
+        /// 查询记录ToList<T>
+        /// </summary>
+        /// <param name="whereLambda"></param>
+        /// <returns>List<T></returns>
+        public List<T> LoadEntitiesToList(Expression<Func<T, bool>> whereLambda)
+        {
+            return Db.Set<T>().Where(whereLambda).ToList();
         }
 
         /// <summary>
@@ -92,17 +121,52 @@ namespace YwkManage.OA.Dal
         }
 
         /// <summary>
+        /// 分页查询记录ToList
+        /// </summary>
+        /// <typeparam name="s"></typeparam>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="totalIndex"></param>
+        /// <param name="whereLambda"></param>
+        /// <param name="orderbyLambda"></param>
+        /// <param name="isAsc"></param>
+        /// <returns>List<T></returns>
+        public List<T> LoadPageEntitiesToList<s>(int pageSize, int pageIndex, out int totalIndex, Expression<Func<T, bool>> whereLambda, Expression<Func<T, s>> orderbyLambda, bool isAsc)
+        {
+            var temp = Db.Set<T>().Where(whereLambda);
+            totalIndex = temp.Count();
+            if (isAsc)
+            {
+                return temp.Skip(pageSize * (pageIndex - 1)).Take(pageSize).OrderBy(orderbyLambda).ToList();
+            }
+            else
+            {
+                return temp.Skip(pageSize * (pageIndex - 1)).Take(pageSize).OrderByDescending(orderbyLambda).ToList();
+            }
+        }
+
+        #region 查询所有记录，为了实现数据导入动态创建类实例并调用该方法用于写入前判断。
+        public IQueryable<T> LoadAllEntities()
+        {
+            return Db.Set<T>().Where(T => true);
+        }
+
+        /// <summary>
+        /// 查询所有记录toList
+        /// </summary>
+        /// <returns>List<T></returns>
+        public List<T> LoadAllEntitiesToList()
+        {
+            return Db.Set<T>().Where(T => true).ToList();
+        }
+
+        /// <summary>
         /// 保存数据
         /// </summary>
         /// <returns></returns>
         public bool SaveChanges()
         {
             return Db.SaveChanges() > 0;
-        }
-        #region 查询所有记录，为了实现数据导入动态创建类实例并调用该方法用于写入前判断。
-        public IQueryable<T> LoadAllEntities()
-        {
-            return Db.Set<T>().Where(T => true);
         }
         #endregion  
     }
