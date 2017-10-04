@@ -37,8 +37,8 @@ namespace YwkManage.OA.Model.Mapping
             // Properties
 
             // Relationships
-            this.HasRequired(e => e.Employee)
-                .WithOptional(e => e.Contact);
+            //this.HasRequired(e => e.Employee)
+            //    .WithOptional(e => e.Contact);
 
 
 

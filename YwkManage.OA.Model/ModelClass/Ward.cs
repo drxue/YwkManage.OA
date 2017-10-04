@@ -16,6 +16,8 @@ namespace YwkManage.OA.Model.ModelClass
         }
         //基本属性
         public int WardID { get; set; }
+        public string WardBuilding { get; set; }
+        public string WardFloor { get; set; }
         public string WardName { get; set; }
         public Nullable<int> BedNumbers { get; set; }
         public Nullable<int> DesignedBedNumbers { get; set; }

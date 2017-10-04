@@ -136,6 +136,26 @@
     <Compile Include="Migrations\201709260938056_modifyModel9.Designer.cs">
       <DependentUpon>201709260938056_modifyModel9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710031345434_modifyDoctorRegisterMapping.cs" />
+    <Compile Include="Migrations\201710031345434_modifyDoctorRegisterMapping.Designer.cs">
+      <DependentUpon>201710031345434_modifyDoctorRegisterMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031351247_modifyDoctorRegisterMapping1.cs" />
+    <Compile Include="Migrations\201710031351247_modifyDoctorRegisterMapping1.Designer.cs">
+      <DependentUpon>201710031351247_modifyDoctorRegisterMapping1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031546319_modifyContact.cs" />
+    <Compile Include="Migrations\201710031546319_modifyContact.Designer.cs">
+      <DependentUpon>201710031546319_modifyContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031558067_modifyWard.cs" />
+    <Compile Include="Migrations\201710031558067_modifyWard.Designer.cs">
+      <DependentUpon>201710031558067_modifyWard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710031611134_modifyWard1.cs" />
+    <Compile Include="Migrations\201710031611134_modifyWard1.Designer.cs">
+      <DependentUpon>201710031611134_modifyWard1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelClass\ActionInfo.cs" />
     <Compile Include="ModelClass\Contact.cs" />
@@ -203,6 +223,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709260938056_modifyModel9.resx">
       <DependentUpon>201709260938056_modifyModel9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031345434_modifyDoctorRegisterMapping.resx">
+      <DependentUpon>201710031345434_modifyDoctorRegisterMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031351247_modifyDoctorRegisterMapping1.resx">
+      <DependentUpon>201710031351247_modifyDoctorRegisterMapping1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031546319_modifyContact.resx">
+      <DependentUpon>201710031546319_modifyContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031558067_modifyWard.resx">
+      <DependentUpon>201710031558067_modifyWard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031611134_modifyWard1.resx">
+      <DependentUpon>201710031611134_modifyWard1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

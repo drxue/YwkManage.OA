@@ -23,6 +23,11 @@ namespace YwkManage.OA.Common
             return p => true;
         }
 
+        /// <summary>
+        /// 创建lambda表达式：p=>true
+        /// </summary>
+        /// <param name="T"></param>
+        /// <returns></returns>
         public static Expression True(Type T)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");
@@ -39,6 +44,11 @@ namespace YwkManage.OA.Common
             return p => false;
         }
 
+        /// <summary>
+        /// 创建lambda表达式：p=>false
+        /// </summary>
+        /// <param name="T"></param>
+        /// <returns></returns>
         public static Expression False(Type T)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");
@@ -58,6 +68,12 @@ namespace YwkManage.OA.Common
             return Expression.Lambda<Func<T, TKey>>(Expression.Property(parameter, propertyName), parameter);
         }
 
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
         public static Expression GetOrderExpression(Type T, string propertyName)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");
@@ -79,8 +95,15 @@ namespace YwkManage.OA.Common
             return Expression.Lambda<Func<T, bool>>(Expression.Equal(member, constant), parameter);
         }
 
-       
-        //参数propertyValue类型修改为object,在方法中判断具体类型。
+
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName == propertyValue
+        /// 参数propertyValue类型修改为object,在方法中判断具体类型。
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <returns></returns>
         public static LambdaExpression CreateEqual(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");//创建参数p
@@ -104,6 +127,13 @@ namespace YwkManage.OA.Common
             return Expression.Lambda<Func<T, bool>>(Expression.NotEqual(member, constant), parameter);
         }
 
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName != propertyValue
+        /// </summary>
+        /// <param name="T">泛型类型</param>
+        /// <param name="propertyName">属性名称</param>
+        /// <param name="propertyValue">属性值</param>
+        /// <returns></returns>
         public static LambdaExpression CreateNotEqual(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");//创建参数p
@@ -127,6 +157,13 @@ namespace YwkManage.OA.Common
             return Expression.Lambda<Func<T, bool>>(Expression.GreaterThan(member, constant), parameter);
         }
 
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName > propertyValue
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <returns></returns>
         public static Expression CreateGreaterThan(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");//创建参数p
@@ -149,6 +186,14 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue);//创建常数
             return Expression.Lambda<Func<T, bool>>(Expression.LessThan(member, constant), parameter);
         }
+
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName < propertyValue
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <returns></returns>
         public static Expression CreateLessThan(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");//创建参数p
@@ -156,6 +201,7 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue);//创建常数
             return Expression.Lambda(Expression.LessThan(member, constant), parameter);
         }
+
         /// <summary>
         /// 创建lambda表达式：p=>p.propertyName >= propertyValue
         /// </summary>
@@ -163,6 +209,7 @@ namespace YwkManage.OA.Common
         /// <param name="column"></param>
         /// <param name="value"></param>
         /// <returns></returns>
+        /// 
         public static Expression<Func<T, bool>> CreateGreaterThanOrEqual<T>(string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(typeof(T), "p");//创建参数p
@@ -170,6 +217,14 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue);//创建常数
             return Expression.Lambda<Func<T, bool>>(Expression.GreaterThanOrEqual(member, constant), parameter);
         }
+
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName >= propertyValue
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <returns></returns>
         public static Expression CreateGreaterThanOrEqual(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");//创建参数p
@@ -177,6 +232,7 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue);//创建常数
             return Expression.Lambda(Expression.GreaterThanOrEqual(member, constant), parameter);
         }
+
         /// <summary>
         /// 创建lambda表达式：p=>p.propertyName <= propertyValue
         /// </summary>
@@ -191,6 +247,14 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue);//创建常数
             return Expression.Lambda<Func<T, bool>>(Expression.LessThanOrEqual(member, constant), parameter);
         }
+
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName <= propertyValue
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <returns></returns>
         public static Expression CreateLessThanOrEqual(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");//创建参数p
@@ -198,6 +262,7 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue);//创建常数
             return Expression.Lambda(Expression.LessThanOrEqual(member, constant), parameter);
         }
+
         /// <summary>
         /// 创建lambda表达式：p=>p.propertyName.Contains(propertyValue)
         /// </summary>
@@ -213,6 +278,14 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue, typeof(string));
             return Expression.Lambda<Func<T, bool>>(Expression.Call(member, method, constant), parameter);
         }
+
+        /// <summary>
+        /// 创建lambda表达式：p=>p.propertyName.Contains(propertyValue)
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <returns></returns>
         private static Expression GetContains(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");
@@ -221,6 +294,7 @@ namespace YwkManage.OA.Common
             ConstantExpression constant = Expression.Constant(propertyValue, typeof(string));
             return Expression.Lambda(Expression.Call(member, method, constant), parameter);
         }
+
         /// <summary>
         /// 创建lambda表达式：!(p=>p.propertyName.Contains(propertyValue))
         /// </summary>
@@ -237,6 +311,13 @@ namespace YwkManage.OA.Common
             return Expression.Lambda<Func<T, bool>>(Expression.Not(Expression.Call(member, method, constant)), parameter);
         }
 
+        /// <summary>
+        /// 创建lambda表达式：!(p=>p.propertyName.Contains(propertyValue))
+        /// </summary>
+        /// <param name="T"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <returns></returns>
         private static Expression GetNotContains(Type T, string propertyName, object propertyValue)
         {
             ParameterExpression parameter = Expression.Parameter(T, "p");

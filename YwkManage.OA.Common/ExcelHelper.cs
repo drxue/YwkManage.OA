@@ -7,7 +7,7 @@ using NPOI.XSSF.UserModel;
 using NPOI.HSSF.UserModel;
 using System.IO;
 using System.Data;
-
+using System.Windows.Forms;
 
 namespace YwkManage.OA.Common
 {
@@ -37,56 +37,67 @@ namespace YwkManage.OA.Common
             int j = 0;
             int count = 0;
             ISheet sheet = null;
-
-            fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            if (fileName.IndexOf(".xlsx") > 0) // 2007版本
-                workbook = new XSSFWorkbook();
-            else if (fileName.IndexOf(".xls") > 0) // 2003版本
-                workbook = new HSSFWorkbook();
-
             try
             {
-                if (workbook != null)
+                using (fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                 {
-                    sheet = workbook.CreateSheet(sheetName);
-                }
-                else
-                {
-                    return -1;
-                }
+                    if (fileName.IndexOf(".xlsx") > 0) // 2007版本
+                        workbook = new XSSFWorkbook();
+                    else if (fileName.IndexOf(".xls") > 0) // 2003版本
+                        workbook = new HSSFWorkbook();
 
-                if (isColumnWritten == true) //写入DataTable的列名
-                {
-                    IRow row = sheet.CreateRow(0);
-                    for (j = 0; j < data.Columns.Count; ++j)
+                    try
                     {
-                        row.CreateCell(j).SetCellValue(data.Columns[j].ColumnName);
-                    }
-                    count = 1;
-                }
-                else
-                {
-                    count = 0;
-                }
+                        if (workbook != null)
+                        {
+                            sheet = workbook.CreateSheet(sheetName);
+                        }
+                        else
+                        {
+                            return -1;
+                        }
 
-                for (i = 0; i < data.Rows.Count; ++i)
-                {
-                    IRow row = sheet.CreateRow(count);
-                    for (j = 0; j < data.Columns.Count; ++j)
-                    {
-                        row.CreateCell(j).SetCellValue(data.Rows[i][j].ToString());
+                        if (isColumnWritten == true) //写入DataTable的列名
+                        {
+                            IRow row = sheet.CreateRow(0);
+                            for (j = 0; j < data.Columns.Count; ++j)
+                            {
+                                row.CreateCell(j).SetCellValue(data.Columns[j].ColumnName);
+                            }
+                            count = 1;
+                        }
+                        else
+                        {
+                            count = 0;
+                        }
+
+                        for (i = 0; i < data.Rows.Count; ++i)
+                        {
+                            IRow row = sheet.CreateRow(count);
+                            for (j = 0; j < data.Columns.Count; ++j)
+                            {
+                                row.CreateCell(j).SetCellValue(data.Rows[i][j].ToString());
+                            }
+                            ++count;
+                        }
+                        workbook.Write(fs); //写入到excel
+                        return count;
                     }
-                    ++count;
+                    catch (Exception ex)
+                    {
+                        //throw ex;
+                        //Console.WriteLine("Exception: " + ex.Message);
+                        return -1;
+                    }
                 }
-                workbook.Write(fs); //写入到excel
-                return count;
             }
             catch (Exception ex)
             {
-                //throw ex;
-                //Console.WriteLine("Exception: " + ex.Message);
+                MessageBox.Show(ex.Message);
                 return -1;
+
             }
+           
         }
 
         /// <summary>
@@ -169,7 +180,7 @@ namespace YwkManage.OA.Common
                                         dataRow[j] = cell.StringCellValue;
                                         break;
                                     case CellType.Numeric: //数字类型                                   
-                                        if (DateUtil.IsCellDateFormatted(cell))
+                                        if (DateUtil.IsCellDateFormatted(cell)) //修改，原用DateUtil.IsValidExcelDate会把数值型转换为日期型
                                         {
                                             dataRow[j] = cell.DateCellValue;
                                         }
@@ -196,8 +207,6 @@ namespace YwkManage.OA.Common
             }
             catch (Exception ex)
             {
-                //throw ex;
-                // ("Exception: " + ex.Message);
                 return null;
             }
         }

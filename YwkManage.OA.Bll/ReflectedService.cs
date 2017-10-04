@@ -85,14 +85,14 @@ namespace YwkManage.OA.Bll
             int unUpdateRows = 0;
             int rowsLength = dt.Rows.Count;
             int columnLength = dt.Columns.Count;
-            
+
             PropertyInfo[] propertyInfoes = ModelType.GetProperties();
             //1 动态调用Dal中的LoadEntities方法。
-            
+
             //2 循环dt行，赋值类属性，添加记录
             foreach (DataRow dr in dt.Rows)
             {
-                var instanceModel = GetModelInstance(ModelName);
+                var instanceModel = GetModelInstance(ModelName); //从DataTable中获取数据填充
                 object resultInstanceModele = null; //通过LoadEntity方法调用的返回值
                 foreach (DataColumn dc in dt.Columns)
                 {
@@ -109,7 +109,7 @@ namespace YwkManage.OA.Bll
                         if (dc.ColumnName == t.Name)  /*&& dr[dc.ColumnName] != System.DBNull.Value*/
                         {
                             //If the property's type is a class and is a model class. 
-                            if (t.PropertyType.IsClass && t.PropertyType.Namespace ==modelNameSpace)
+                            if (t.PropertyType.IsClass && t.PropertyType.Namespace == modelNameSpace)
                             {
                                 //load the entity
                                 //string propertyName = t.PropertyType.GetProperties()[0].Name;//属性名称，需要创建类的key，一般为第一个属性
@@ -123,11 +123,19 @@ namespace YwkManage.OA.Bll
                                 //    t.SetValue(instanceModel, propertyClassInStance, null);//给对象赋值
                                 //}
                             }
+                            else if (t.PropertyType.IsGenericType && t.PropertyType.GenericTypeArguments[0].Namespace == modelNameSpace) //模型类的泛型
+                            {
+                                //如果是泛型类public virtual ICollection<Ward> Ward { get; set; }等多对多关系或一对多关系。
+                            }
                             else
                             {
                                 var dtValue = dr[dc.ColumnName];
-                                var value = ChangeType(dtValue, t.PropertyType);//调用自己的类型转换方法
-                                t.SetValue(instanceModel, value, null);//给对象赋值
+                                if (dtValue.ToString() != string.Empty)
+                                {
+                                    var value = ChangeType(dtValue, t.PropertyType);//调用自己的类型转换方法
+                                    t.SetValue(instanceModel, value, null);//给对象赋值
+                                }
+
                             }
                         }
                     }//end foreach (PropertyInfo t in propertyInfoes)
@@ -139,13 +147,13 @@ namespace YwkManage.OA.Bll
                 bool exist = false;
                 string propertyName = propertyInfoes[0].Name;
                 var propertyValue = propertyInfoes[0].GetValue(instanceModel);
-                LambdaExpression exp = Common.LambdaHelper.CreateEqual(ModelType, propertyName, propertyValue);
+                LambdaExpression exp = Common.LambdaHelper.CreateEqual(ModelType, propertyName, propertyValue);//生成Lambda参数，是个LambdaExpression类型的表达式。
+                object[] parametersLoad = new object[] { exp };//将表达式加入参数列表
                 MethodInfo MethodInfo = DalType.GetMethod("LoadEntity");
-                object[] parametersLoad = new object[] { exp };
                 try
                 {
                     resultInstanceModele = MethodInfo.Invoke(DalInstance, parametersLoad);
-                    if (resultInstanceModele!=null)
+                    if (resultInstanceModele != null)
                     {
                         exist = true;
                     }
@@ -158,7 +166,7 @@ namespace YwkManage.OA.Bll
                 {
                     exist = false;
                 }
-                
+
                 #endregion
 
                 if (exist)
@@ -166,8 +174,9 @@ namespace YwkManage.OA.Bll
                     //复制model
                     foreach (PropertyInfo t in propertyInfoes)
                     {
-                      var propertyValue1=  t.GetValue(instanceModel);
-                        if (propertyValue1!=null)
+                        var propertyValue1 = t.GetValue(instanceModel);
+
+                        if (!Convert.IsDBNull(propertyValue1) && propertyValue1 != null && propertyValue1.ToString() != string.Empty)//增加string.Empty判断，有存在空字符串会引起外键错误，空字符串当做null处理。
                         {
                             t.SetValue(resultInstanceModele, propertyValue1);
                         }
@@ -364,7 +373,7 @@ namespace YwkManage.OA.Bll
             //生成调用参数数组
             object[] parameters = new object[] { expression };
             //动态调用Dal中的LoadEntities方法。
-            var objList = methodLoadEntities.Invoke(DalInstance, parameters) ;
+            var objList = methodLoadEntities.Invoke(DalInstance, parameters);
             //BaseService中的各种方法返回值不一样，有的是返回SaveChange()结果，有的是返回具体操作方法的结果。
             SaveChanges();
             return objList;
@@ -383,23 +392,29 @@ namespace YwkManage.OA.Bll
             {
                 Type t = propertyInfo.PropertyType;
                 Type columnType = null;
-                //不能读取或者为非Nullable<>的泛型
-                if (!propertyInfo.CanRead || t.IsGenericType && t.Name != "Nullable`1")
+                if (t.IsClass && t.Namespace == modelNameSpace)
                 {
-                    continue;
+                    columnType = t.GetProperties()[0].PropertyType;
                 }
-                //Nullable<>类型
-                if (t.IsGenericType && t.Name == "Nullable`1") //是个可空的泛型值类型
+                else if (t.IsGenericType)
                 {
-                    //获取构成该泛型的参数类型，默认取第一个泛型参数，一般我们也用一个参数构成Nullable<>泛型。
-                    columnType = t.GenericTypeArguments[0];
+                    if (t.GenericTypeArguments.Count() == 1)//泛型参数为一个
+                    {
+                        if (t.Name == "Nullable`1")
+                        {
+                            columnType = t.GenericTypeArguments[0];//可空类型
+                        }
+                        else if (t.GenericTypeArguments[0].IsClass && t.GenericTypeArguments[0].Namespace == modelNameSpace)
+                        {
+                            columnType = t.GenericTypeArguments[0].GetProperties()[0].PropertyType;//泛型参数类型的第一个属性的类型，第一个属性一般为primaryKey。
+                        }
+                    }
                 }
-                else
+                else//非泛型
                 {
                     columnType = t;
                 }
                 dt.Columns.Add(propertyInfo.Name, columnType);//设置表头
-                
             }
             //根据EntityCount方法返回的数据库记录数，决定后续是否要添加记录。
             int entityCount = EntityCount();
@@ -419,33 +434,48 @@ namespace YwkManage.OA.Bll
                             continue;
                         }
                         Type t = propertyInfo.PropertyType;
-
-                        #region 判断属性是否是模型类
-                        //if (t.IsClass && t.Namespace == modelNameSpace)
-                        //{
-                        //    object classInstance = propertyInfo.GetValue(model);
-                        //    //创建类实例
-                        //    if (classInstance == null)
-                        //    {
-                        //        continue;
-                        //    }
-                        //    PropertyInfo pi = t.GetProperties()[0]; //获取类的第一个属性，一般为key
-                        //    object key = pi.GetValue(classInstance);//将类设置为外键值。
-                        //    if (key == null)
-                        //    {
-                        //        continue;
-                        //    }
-                        //    row[propertyInfo.Name] = classInstance;//将类设置为外键值。
-                        //    continue;
-                        //}
-                        #endregion
-
-                        var valueTemp = propertyInfo.GetValue(model); //这句错，如果属性为类，重新获取需要重用该类，需要重新创建一个该类实例。在数据库读取过程中重新读取存在问题，改进方式将前面的读取改为ToList。
-                        if (Convert.IsDBNull(valueTemp) || valueTemp == null)
+                        var columnValue = propertyInfo.GetValue(model);
+                        //如果为空，跳过
+                        if (Convert.IsDBNull(columnValue) || columnValue == null || columnValue.ToString() == string.Empty)
                         {
                             continue;
                         }
-                        row[propertyInfo.Name] = valueTemp;//将属性值赋给每一列
+                        #region 判断属性类型并赋值
+                        if (t.IsClass && t.Namespace == modelNameSpace) //属性为模型类
+                        {
+                            PropertyInfo pi = t.GetProperties()[0]; //获取类的第一个属性，一般为key
+                            var key = pi.GetValue(columnValue);//将类设置为外键值。
+                            if (key != null)
+                            {
+                                row[propertyInfo.Name] = key;//将类设置为外键值。
+                            }
+                        }
+                        else if (t.IsGenericType)
+                        {
+                            if (t.GenericTypeArguments.Count() == 1)//泛型参数为一个
+                            {
+                                if (t.Name == "Nullable`1")//可空类型
+                                {
+                                    row[propertyInfo.Name] = columnValue;//将类设置为外键值。
+                                }
+                                else if (t.GenericTypeArguments[0].IsClass && t.GenericTypeArguments[0].Namespace == modelNameSpace)
+                                {
+                                    PropertyInfo tempProperty = t.GenericTypeArguments[0].GetProperties()[0];//泛型参数类型的第一个属性的类型，第一个属性一般为primaryKey。
+                                    ICollection temp = columnValue as ICollection;
+                                    if (temp == null || temp.Count == 0)
+                                    {
+                                        continue;
+                                    }
+                                    columnValue = tempProperty.GetValue(temp.GetEnumerator().Current);
+                                    row[propertyInfo.Name] = columnValue;//将类设置为外键值。
+                                }
+                            }
+                        }
+                        else//非泛型
+                        {
+                            row[propertyInfo.Name] = columnValue;//将属性值赋给每一列
+                        }
+                        #endregion
                     }
                     dt.Rows.Add(row);//添加新行
                 }
@@ -575,16 +605,47 @@ namespace YwkManage.OA.Bll
         /// <returns></returns>
         private static object ChangeType(object value, Type type)
         {
-            if (type.IsGenericType && type.Name=="Nullable`1")
+            object result = null;
+            if (type.IsGenericType && type.Name == "Nullable`1")
             {
                 NullableConverter convertor = new NullableConverter(type);
-                return Convert.IsDBNull(value) ? null : convertor.ConvertFrom(value);
+                try
+                {
+                    result = Convert.IsDBNull(value) ? null : convertor.ConvertFrom(value);
+                }
+                catch (Exception)
+                {
+
+                    if (type.GetGenericArguments()[0] == typeof(DateTime))
+                    {
+                        result = Convert.IsDBNull(value) ? null : convertor.ConvertFrom(long.Parse(value.ToString()));
+                    }
+                }
+                
+                ////
+               
+                //if (value.GetType() == typeof(string))
+                //{
+                //    if (type.GetGenericArguments()[0] == typeof(DateTime))
+                //    {
+                //        result= Convert.IsDBNull(value) ? null : convertor.ConvertFrom(Convert.ToInt32(value));
+                //        result=new DateTime(long.Parse(value.ToString()));
+                //    }
+                //    else
+                //    {
+                //        result= Convert.IsDBNull(value) ? null : convertor.ConvertFromString(value.ToString());
+                //    }
+                //}
+                //else
+                //{
+                //    result= Convert.IsDBNull(value) ? null : convertor.ConvertFrom(value);
+                //}
             }
             else
             {
-                return Convert.ChangeType(Convert.IsDBNull(value) ? null : value, type);
+                result= Convert.ChangeType(Convert.IsDBNull(value) ? null : value, type);
             }
-            
+            return result;
         }
 
         /// <summary>

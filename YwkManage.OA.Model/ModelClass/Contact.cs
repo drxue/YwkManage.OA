@@ -11,7 +11,7 @@ namespace YwkManage.OA.Model.ModelClass
         public string EmployeeID { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
-        public string Telephone { get; set; }
+        public string Department { get; set; }
         public string WorkPhone { get; set; }
         public string MobilePhone { get; set; }
         public string ShortPhone66 { get; set; }
@@ -21,6 +21,5 @@ namespace YwkManage.OA.Model.ModelClass
         public string Comment { get; set; }
         public bool DeleteFlag { get; set; }
         ///导航属性
-        public virtual Employee Employee { get; set; }
     }
 }

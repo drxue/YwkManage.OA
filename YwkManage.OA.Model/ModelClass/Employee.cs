@@ -37,7 +37,7 @@ namespace YwkManage.OA.Model.ModelClass
         
         //医师注册信息
         public virtual DoctorRegister DoctorRegister { get; set; }
-        public virtual Contact Contact { get; set; }
+        //public virtual Contact Contact { get; set; }
         public virtual TitleLevelInfo TitleLevelInfo { get; set; }
         public virtual Department Department { get; set; }
         //职称信息
